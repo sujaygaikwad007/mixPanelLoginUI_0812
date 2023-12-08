@@ -13,9 +13,14 @@
 		1F2B6CBD2B22EE2A0062BEB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CBB2B22EE2A0062BEB0 /* Main.storyboard */; };
 		1F2B6CBF2B22EE2F0062BEB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */; };
 		1F2B6CC22B22EE2F0062BEB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */; };
+		1F7B5DF62B22FF610074F239 /* signIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF52B22FF610074F239 /* signIn.swift */; };
+		1F7B5DF82B22FF7C0074F239 /* createAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF72B22FF7C0074F239 /* createAccount.swift */; };
+		E8BF3263F8DD5497AB87DA01 /* Pods_mixPanelLoginUI_0812.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075BDFA2B75937E014B619F1 /* Pods_mixPanelLoginUI_0812.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00EA36B105ADE50B80391BC0 /* Pods-mixPanelLoginUI_0812.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixPanelLoginUI_0812.debug.xcconfig"; path = "Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812.debug.xcconfig"; sourceTree = "<group>"; };
+		075BDFA2B75937E014B619F1 /* Pods_mixPanelLoginUI_0812.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mixPanelLoginUI_0812.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2B6CB22B22EE2A0062BEB0 /* mixPanelLoginUI_0812.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixPanelLoginUI_0812.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2B6CB52B22EE2A0062BEB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,9 @@
 		1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2B6CC12B22EE2F0062BEB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F2B6CC32B22EE2F0062BEB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F7B5DF52B22FF610074F239 /* signIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signIn.swift; sourceTree = "<group>"; };
+		1F7B5DF72B22FF7C0074F239 /* createAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createAccount.swift; sourceTree = "<group>"; };
+		83E08AD88E6C1BBFD48386D4 /* Pods-mixPanelLoginUI_0812.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixPanelLoginUI_0812.release.xcconfig"; path = "Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8BF3263F8DD5497AB87DA01 /* Pods_mixPanelLoginUI_0812.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,8 @@
 			children = (
 				1F2B6CB42B22EE2A0062BEB0 /* mixPanelLoginUI_0812 */,
 				1F2B6CB32B22EE2A0062BEB0 /* Products */,
+				BD8133E33DF136FACA7C6F36 /* Pods */,
+				737AEBC18BC3D39B72E853D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +71,30 @@
 				1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */,
 				1F2B6CB92B22EE2A0062BEB0 /* ViewController.swift */,
 				1F2B6CBB2B22EE2A0062BEB0 /* Main.storyboard */,
+				1F7B5DF72B22FF7C0074F239 /* createAccount.swift */,
+				1F7B5DF52B22FF610074F239 /* signIn.swift */,
 				1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */,
 				1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */,
 				1F2B6CC32B22EE2F0062BEB0 /* Info.plist */,
 			);
 			path = mixPanelLoginUI_0812;
+			sourceTree = "<group>";
+		};
+		737AEBC18BC3D39B72E853D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				075BDFA2B75937E014B619F1 /* Pods_mixPanelLoginUI_0812.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD8133E33DF136FACA7C6F36 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00EA36B105ADE50B80391BC0 /* Pods-mixPanelLoginUI_0812.debug.xcconfig */,
+				83E08AD88E6C1BBFD48386D4 /* Pods-mixPanelLoginUI_0812.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F2B6CC62B22EE2F0062BEB0 /* Build configuration list for PBXNativeTarget "mixPanelLoginUI_0812" */;
 			buildPhases = (
+				86D07C40E62A6955D9D1BE7D /* [CP] Check Pods Manifest.lock */,
 				1F2B6CAE2B22EE2A0062BEB0 /* Sources */,
 				1F2B6CAF2B22EE2A0062BEB0 /* Frameworks */,
 				1F2B6CB02B22EE2A0062BEB0 /* Resources */,
+				121AEE1F93030B91FB46F509 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +165,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		121AEE1F93030B91FB46F509 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86D07C40E62A6955D9D1BE7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mixPanelLoginUI_0812-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1F2B6CAE2B22EE2A0062BEB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,7 +214,9 @@
 			files = (
 				1F2B6CBA2B22EE2A0062BEB0 /* ViewController.swift in Sources */,
 				1F2B6CB62B22EE2A0062BEB0 /* AppDelegate.swift in Sources */,
+				1F7B5DF82B22FF7C0074F239 /* createAccount.swift in Sources */,
 				1F2B6CB82B22EE2A0062BEB0 /* SceneDelegate.swift in Sources */,
+				1F7B5DF62B22FF610074F239 /* signIn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +360,7 @@
 		};
 		1F2B6CC72B22EE2F0062BEB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00EA36B105ADE50B80391BC0 /* Pods-mixPanelLoginUI_0812.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -291,9 +368,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mixPanelLoginUI_0812/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LoginUI;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,6 +389,7 @@
 		};
 		1F2B6CC82B22EE2F0062BEB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83E08AD88E6C1BBFD48386D4 /* Pods-mixPanelLoginUI_0812.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -318,9 +397,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mixPanelLoginUI_0812/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LoginUI;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

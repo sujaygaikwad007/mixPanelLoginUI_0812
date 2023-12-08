@@ -1,19 +1,27 @@
-//
-//  ViewController.swift
-//  mixPanelLoginUI_0812
-//
-//  Created by Aniket Patil on 08/12/23.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var signupBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        signupBtn.layer.cornerRadius = 20
     }
 
-
+    @IBAction func signupBtnTapped(_ sender: UIButton) {
+        
+        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "createAccount") as! createAccount
+        self.navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
+    @IBAction func signInBtn(_ sender: UIButton) {
+        
+        let signInVC = storyboard?.instantiateViewController(withIdentifier: "signIn") as! signIn
+        self.navigationController?.pushViewController(signInVC, animated: true)
+    }
 }
 
