@@ -63,7 +63,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="tFz-7y-8by">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoneyRm" translatesAutoresizingMaskIntoConstraints="NO" id="tFz-7y-8by">
                                 <rect key="frame" x="87" y="388.5" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="EWz-Ab-TSy"/>
@@ -120,7 +120,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opr-wp-HTr">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="O7R-dl-JE9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoneyRm" translatesAutoresizingMaskIntoConstraints="NO" id="O7R-dl-JE9">
                                         <rect key="frame" x="87" y="52" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="1F5-sY-WAF"/>
@@ -156,17 +156,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6iZ-dM-cyh">
-                                <rect key="frame" x="30" y="388.5" width="354" height="40"/>
+                                <rect key="frame" x="30" y="388.5" width="354" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="MZw-cu-hNX"/>
+                                    <constraint firstAttribute="height" constant="50" id="MZw-cu-hNX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rE2-ax-cg8">
-                                <rect key="frame" x="30" y="446.5" width="354" height="40"/>
+                                <rect key="frame" x="30" y="456.5" width="354" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="afC-FO-6pa"/>
+                                    <constraint firstAttribute="height" constant="50" id="afC-FO-6pa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -196,7 +196,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIs-dC-gwK">
-                                <rect key="frame" x="239" y="494.5" width="145" height="28"/>
+                                <rect key="frame" x="239" y="514.5" width="145" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="Ped-EB-Fyz"/>
                                 </constraints>
@@ -252,6 +252,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qG4-tR-t0y">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -273,7 +274,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZ4-0E-UFj">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="PoX-nR-kwb">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoneyRm" translatesAutoresizingMaskIntoConstraints="NO" id="PoX-nR-kwb">
                                         <rect key="frame" x="87" y="52" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="7uS-pv-qC4"/>
@@ -298,33 +299,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PhY-ti-1eJ">
-                                <rect key="frame" x="30" y="347" width="354" height="40"/>
+                                <rect key="frame" x="30" y="347" width="354" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="xdR-DF-ytv"/>
+                                    <constraint firstAttribute="height" constant="50" id="xdR-DF-ytv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-sp-kbB">
-                                <rect key="frame" x="30" y="397" width="354" height="40"/>
+                                <rect key="frame" x="30" y="407" width="354" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="yWX-Ds-mUi"/>
+                                    <constraint firstAttribute="height" constant="50" id="yWX-Ds-mUi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9m-CR-Gto">
-                                <rect key="frame" x="30" y="447" width="354" height="40"/>
+                                <rect key="frame" x="30" y="467" width="354" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="9ct-4v-KkF"/>
+                                    <constraint firstAttribute="height" constant="50" id="9ct-4v-KkF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confiirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFl-5e-Gvq">
-                                <rect key="frame" x="30" y="497" width="354" height="40"/>
+                                <rect key="frame" x="30" y="527" width="354" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="3R2-x8-1Ty"/>
+                                    <constraint firstAttribute="height" constant="50" id="3R2-x8-1Ty"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -413,7 +414,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="applogo" width="200" height="200"/>
+        <image name="MoneyRm" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

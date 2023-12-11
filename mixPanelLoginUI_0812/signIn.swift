@@ -20,11 +20,11 @@ class signIn: UIViewController {
         
         createBottomCurve(for: roundedUIView)
         cornerRadiusTxtField()
-        eyeIconTxt()
-        
         
         addIconToTextField(textField: txtSignInUserName, iconName: "user")
-        addIconToTextField(textField: txtSignInPass, iconName: "padlock")
+        addIconToTextField(textField: txtSignInPass, iconName: "openlock")
+        
+        eyeIconTxtField(for: txtSignInPass, with: UIImageView())
         
     }
     
@@ -57,7 +57,7 @@ class signIn: UIViewController {
                                              "Password" : password
                                             ])
             
-            print("UserName is \(userName)")
+           // print("UserName is \(userName)")
             
         }
     }
@@ -112,51 +112,45 @@ class signIn: UIViewController {
     
     //Code for Eye icon for password hide and show ---Start
     
-    func eyeIconTxt()
-    {
-        let passIcon = UIImageView()
-        passIcon.image = UIImage(named: "close")
-        let contentView = UIView() //For blank space
+    func eyeIconTxtField(for textField: UITextField, with iconImageView: UIImageView) {
+        let passIcon = iconImageView
+        passIcon.image = UIImage(named: "open")
+        let contentView = UIView() // For blank space
         contentView.addSubview(passIcon)
-        
         
         contentView.frame = CGRect(x: 0, y: 0, width: UIImage(named: "close")!.size.width, height: UIImage(named: "close")!.size.height)
         
-        
         passIcon.frame = CGRect(x: -10, y: 0, width: UIImage(named: "close")!.size.width, height: UIImage(named: "close")!.size.height)
         
+        textField.rightView = contentView
+        textField.rightViewMode = .always
+        textField.clearButtonMode = .whileEditing
         
-        txtSignInPass.rightView = contentView
-        txtSignInPass.rightViewMode = .always
-        txtSignInPass.clearButtonMode = .whileEditing
-        
-        
-        let tapGesture = UITapGestureRecognizer(target: self.self, action: #selector(imageTapped(tapGesture:)))
-        
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
         passIcon.isUserInteractionEnabled = true
         passIcon.addGestureRecognizer(tapGesture)
-        
     }
-    
-    @objc func imageTapped(tapGesture:UITapGestureRecognizer)
-    {
-        let tappedImage = tapGesture.view as! UIImageView
-        
-        if iconClick
-        {
+
+
+
+
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        guard let tappedImageView = sender.view as? UIImageView else { return }
+        guard let textField = tappedImageView.superview?.superview as? UITextField else { return }
+
+        if iconClick {
             iconClick = false
-            tappedImage.image = UIImage(named: "open")
-            txtSignInPass.isSecureTextEntry = false
-        }
-        
-        else
-        {
+            tappedImageView.image = UIImage(named: "open")
+            textField.isSecureTextEntry = false
+        } else {
             iconClick = true
-            tappedImage.image = UIImage(named: "close")
-            txtSignInPass.isSecureTextEntry = true
+            tappedImageView.image = UIImage(named: "close")
+            textField.isSecureTextEntry = true
         }
     }
+
+
+
     
     //Code for Eye icon for password hide and show ---End
     
@@ -172,16 +166,23 @@ extension signIn : UITextFieldDelegate
     //Code for add border color after selecting--Start
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        if textField != txtSignInUserName || textField != txtSignInPass {
             
             textField.layer.borderWidth = 1
             textField.layer.borderColor = UIColor.blue.cgColor
             
-            
+        
+        if textField == txtSignInUserName
+        {
             addIconToTextField(textField: txtSignInUserName, iconName: "userfilled")
-           // addIconToTextField(textField: txtSignInPass, iconName: "padlock")
-            
+
         }
+        else if textField == txtSignInPass
+        {
+            addIconToTextField(textField: txtSignInPass, iconName: "filledlock")
+
+        }
+            
+        
         
     }
     
@@ -190,6 +191,8 @@ extension signIn : UITextFieldDelegate
         textField.layer.borderColor = UIColor.lightGray.cgColor
         
         addIconToTextField(textField: txtSignInUserName, iconName: "user")
+        addIconToTextField(textField: txtSignInPass, iconName: "openlock")
+        
         
     }
     //Code for add border color after selecting-- End
