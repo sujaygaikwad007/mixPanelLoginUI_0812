@@ -24,8 +24,11 @@ class signIn: UIViewController {
         
         createBottomCurve(for: roundedUIView)
         cornerRadiusTxtField()
-        txtUserFieldIcon()
         eyeIconTxt()
+        
+        
+        addIconToTextField(textField: txtSignInUserName, iconName: "user")
+       // addIconToTextField(textField: txtPassword, iconName: "passwordIcon")
         
         self.txtSignInUserName.addPaddingTxt()
         self.txtSignInPass.addPaddingTxt()
@@ -123,22 +126,19 @@ class signIn: UIViewController {
     
     
         // Code for User Icon---- Start
-    func txtUserFieldIcon()
-    {
-        let UserIcon = UIImageView()
-        UserIcon.image = UIImage(named: "user")
-        let contentView = UIView() //For blank space
-        contentView.addSubview(UserIcon)
+    func addIconToTextField(textField: UITextField, iconName: String) {
+        let iconImageView = UIImageView()
+        iconImageView.image = UIImage(named: iconName)
         
+        let contentView = UIView()
+        contentView.addSubview(iconImageView)
         
-        contentView.frame = CGRect(x: 0, y: 0, width: UIImage(named: "user")!.size.width, height: UIImage(named: "user")!.size.height)
-        UserIcon.frame = CGRect(x: -10, y: 0, width: UIImage(named: "user")!.size.width, height: UIImage(named: "user")!.size.height)
+        contentView.frame = CGRect(x: 0, y: 0, width: iconImageView.image?.size.width ?? 0, height: iconImageView.image?.size.height ?? 0)
+        iconImageView.frame = CGRect(x: 10, y: 0, width: iconImageView.image?.size.width ?? 0, height: iconImageView.image?.size.height ?? 0)
         
-        txtSignInUserName.rightView = contentView
-        txtSignInUserName.rightViewMode = .always
-        txtSignInUserName.clearButtonMode = .whileEditing
-        
-        
+        textField.leftView = contentView
+        textField.leftViewMode = .always
+        textField.clearButtonMode = .whileEditing
     }
     // Code for User Icon---- Start
 

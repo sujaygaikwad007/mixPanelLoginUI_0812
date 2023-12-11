@@ -1,10 +1,3 @@
-//
-//  createAccount.swift
-//  mixPanelLoginUI_0812
-//
-//  Created by Aniket Patil on 08/12/23.
-//
-
 import UIKit
 import Mixpanel
 
@@ -22,8 +15,13 @@ class createAccount: UIViewController {
         super.viewDidLoad()
         
         createBottomCurve(for: roundedUIView)
-        signUpBtn.layer.cornerRadius = 20
+        cornerRadiusTxtField()
 
+        
+        self.txtSignUpUsername.addPaddingTxt()
+        self.txtSignUpEmail.addPaddingTxt()
+        self.txtSignUpPass.addPaddingTxt()
+        self.txtSignUpConfirmPass.addPaddingTxt()
     }
     
 
@@ -77,4 +75,28 @@ class createAccount: UIViewController {
         
         
     }
+    
+    //Add corner Radius to the textField ---- Start
+    func cornerRadiusTxtField()
+    {
+        signUpBtn.layer.cornerRadius = 20
+
+        
+        txtSignUpUsername.layer.borderWidth = 0.5
+        txtSignUpUsername.layer.cornerRadius = 20
+        
+        txtSignUpEmail.layer.borderWidth = 0.5
+        txtSignUpEmail.layer.cornerRadius=20
+        
+        txtSignUpPass.layer.borderWidth = 0.5
+        txtSignUpPass.layer.cornerRadius=20
+        
+        txtSignUpConfirmPass.layer.borderWidth = 0.5
+        txtSignUpConfirmPass.layer.cornerRadius=20
+        
+    }
+    //Add corner Radius to the textField ---- End
 }
+
+
+
