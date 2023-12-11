@@ -15,6 +15,7 @@
 		1F2B6CC22B22EE2F0062BEB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */; };
 		1F7B5DF62B22FF610074F239 /* signIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF52B22FF610074F239 /* signIn.swift */; };
 		1F7B5DF82B22FF7C0074F239 /* createAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF72B22FF7C0074F239 /* createAccount.swift */; };
+		1FDEB02D2B26E3EC003A2B37 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEB02C2B26E3EC003A2B37 /* File.swift */; };
 		E8BF3263F8DD5497AB87DA01 /* Pods_mixPanelLoginUI_0812.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075BDFA2B75937E014B619F1 /* Pods_mixPanelLoginUI_0812.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1F2B6CC32B22EE2F0062BEB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F7B5DF52B22FF610074F239 /* signIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signIn.swift; sourceTree = "<group>"; };
 		1F7B5DF72B22FF7C0074F239 /* createAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createAccount.swift; sourceTree = "<group>"; };
+		1FDEB02C2B26E3EC003A2B37 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		83E08AD88E6C1BBFD48386D4 /* Pods-mixPanelLoginUI_0812.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixPanelLoginUI_0812.release.xcconfig"; path = "Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				1F2B6CBB2B22EE2A0062BEB0 /* Main.storyboard */,
 				1F7B5DF72B22FF7C0074F239 /* createAccount.swift */,
 				1F7B5DF52B22FF610074F239 /* signIn.swift */,
+				1FDEB02C2B26E3EC003A2B37 /* File.swift */,
 				1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */,
 				1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */,
 				1F2B6CC32B22EE2F0062BEB0 /* Info.plist */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2B6CBA2B22EE2A0062BEB0 /* ViewController.swift in Sources */,
+				1FDEB02D2B26E3EC003A2B37 /* File.swift in Sources */,
 				1F2B6CB62B22EE2A0062BEB0 /* AppDelegate.swift in Sources */,
 				1F7B5DF82B22FF7C0074F239 /* createAccount.swift in Sources */,
 				1F2B6CB82B22EE2A0062BEB0 /* SceneDelegate.swift in Sources */,

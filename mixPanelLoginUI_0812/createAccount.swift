@@ -16,12 +16,15 @@ class createAccount: UIViewController {
         
         createBottomCurve(for: roundedUIView)
         cornerRadiusTxtField()
+        
+        
+        addIconToTextField(textField: txtSignUpUsername, iconName: "user")
+        addIconToTextField(textField: txtSignUpEmail, iconName: "email")
+        addIconToTextField(textField: txtSignUpPass, iconName: "padlock")
+        addIconToTextField(textField: txtSignUpConfirmPass, iconName: "padlock")
 
         
-        self.txtSignUpUsername.addPaddingTxt()
-        self.txtSignUpEmail.addPaddingTxt()
-        self.txtSignUpPass.addPaddingTxt()
-        self.txtSignUpConfirmPass.addPaddingTxt()
+       
     }
     
 
@@ -63,7 +66,7 @@ class createAccount: UIViewController {
                                         ["UserName" : userName,
                                          "Password" : password
                                         ])
-        print("UserName-----\(userName)  Email-----\(email)")
+       // print("UserName-----\(userName)  Email-----\(email)")
         
         
     }
@@ -100,3 +103,32 @@ class createAccount: UIViewController {
 
 
 
+
+extension createAccount : UITextFieldDelegate
+
+{
+    //Code for add border color after selecting--Start
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField != txtSignUpUsername || textField != txtSignUpEmail || textField != txtSignUpPass || textField != txtSignUpConfirmPass  {
+            
+            textField.layer.borderWidth = 1
+            textField.layer.borderColor = UIColor.blue.cgColor
+            
+            
+            addIconToTextField(textField: txtSignUpUsername, iconName: "userfilled")
+           // addIconToTextField(textField: txtSignInPass, iconName: "padlock")
+            
+        }
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        
+//        addIconToTextField(textField: txtSignInUserName, iconName: "user")
+        
+    }
+    //Code for add border color after selecting-- End
+}
