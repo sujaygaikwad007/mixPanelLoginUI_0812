@@ -1,6 +1,30 @@
 import Foundation
 import UIKit
 
+
+
+// Add botttom cureve to the UIView---- Start
+func createBottomCurve(for view: UIView, curveRadius: CGFloat = 70) {
+    print("roundedUIView frame: \(view.frame)")
+    
+    let maskPath = UIBezierPath()
+    maskPath.move(to: CGPoint(x: 0, y: 0))
+    maskPath.addLine(to: CGPoint(x: 0, y: view.bounds.height - curveRadius))
+    maskPath.addQuadCurve(to: CGPoint(x: view.bounds.width, y: view.bounds.height - curveRadius),
+                          controlPoint: CGPoint(x: view.bounds.width / 2, y: view.bounds.height))
+    maskPath.addLine(to: CGPoint(x: view.bounds.width, y: 0))
+    maskPath.close()
+    
+    let shapeLayer = CAShapeLayer()
+    shapeLayer.path = maskPath.cgPath
+    view.layer.mask = shapeLayer
+    
+}
+
+// Add botttom cureve to the UIView---- End
+
+
+
 // Code for  Icon---- Start
 func addIconToTextField(textField: UITextField, iconName: String) {
     let iconImageView = UIImageView(image: UIImage(named: iconName))

@@ -14,14 +14,18 @@ class ViewController: UIViewController {
 
     @IBAction func signupBtnTapped(_ sender: UIButton) {
         
-        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "createAccount") as! createAccount
+        let signUpVC = storyboard?.instantiateViewController(withIdentifier: "createAccount") as! CreateAccountViewController
         self.navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {
         
-        let signInVC = storyboard?.instantiateViewController(withIdentifier: "signIn") as! signIn
+        let signInVC = storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
         self.navigationController?.pushViewController(signInVC, animated: true)
     }
 }
+
+
+
+
 

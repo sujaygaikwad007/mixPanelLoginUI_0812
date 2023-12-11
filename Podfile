@@ -6,6 +6,10 @@ target 'mixPanelLoginUI_0812' do
   use_frameworks!
 
   # Pods for mixPanelLoginUI_0812
-    pod 'Mixpanel-swift'
+
+    pod 'Mixpanel-swift' 
+    pod 'Firebase/Core' 
+    pod 'Firebase/Auth' 
+    pod 'GoogleSignIn'
 
 end
