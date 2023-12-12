@@ -80,10 +80,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt8-Hd-wGe">
-                                <rect key="frame" x="168" y="629" width="80" height="40"/>
+                                <rect key="frame" x="127.5" y="627" width="159" height="40"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="wZk-aw-U5b"/>
+                                    <constraint firstAttribute="width" constant="159" id="Dkc-ek-ANs"/>
+                                    <constraint firstAttribute="height" constant="40" id="IFb-Qw-gab"/>
                                 </constraints>
                                 <color key="tintColor" red="0.99999994039999995" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
@@ -99,19 +100,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YwJ-Hb-NNZ" secondAttribute="trailing" constant="10" id="5I6-uf-YKn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6AD-pz-8l7" secondAttribute="trailing" id="6Bk-ee-TfA"/>
                             <constraint firstItem="Fy2-Hj-vUt" firstAttribute="top" secondItem="tFz-7y-8by" secondAttribute="bottom" constant="203.5" id="9cR-LI-T43"/>
-                            <constraint firstItem="Dt8-Hd-wGe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="Ire-8D-Fqy"/>
-                            <constraint firstItem="Fy2-Hj-vUt" firstAttribute="top" secondItem="Dt8-Hd-wGe" secondAttribute="bottom" constant="51" id="Kjp-UW-VgC"/>
+                            <constraint firstItem="Dt8-Hd-wGe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JIg-ZT-PQZ"/>
                             <constraint firstItem="YwJ-Hb-NNZ" firstAttribute="top" secondItem="Fy2-Hj-vUt" secondAttribute="bottom" constant="27" id="La0-15-gcT"/>
                             <constraint firstItem="6AD-pz-8l7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OSu-Mo-gmx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fy2-Hj-vUt" secondAttribute="trailing" constant="20" id="QWo-li-Ebk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tFz-7y-8by" secondAttribute="trailing" constant="87" id="Rta-Ge-Pgw"/>
+                            <constraint firstItem="Fy2-Hj-vUt" firstAttribute="top" secondItem="Dt8-Hd-wGe" secondAttribute="bottom" constant="53" id="VtK-UT-lud"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YwJ-Hb-NNZ" secondAttribute="bottom" constant="20" id="ZTw-xw-ZC7"/>
                             <constraint firstItem="YwJ-Hb-NNZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ih9-L6-e1E"/>
                             <constraint firstItem="6AD-pz-8l7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="kXt-n3-bNn"/>
                             <constraint firstItem="lm9-yq-96U" firstAttribute="top" secondItem="6AD-pz-8l7" secondAttribute="bottom" constant="10" id="lrW-Ox-SlI"/>
                             <constraint firstItem="tFz-7y-8by" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="lsl-Ld-2OK"/>
                             <constraint firstItem="Fy2-Hj-vUt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mRs-yE-xAT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dt8-Hd-wGe" secondAttribute="trailing" constant="166" id="n5j-oH-BLL"/>
                             <constraint firstItem="lm9-yq-96U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="r5j-18-no5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lm9-yq-96U" secondAttribute="trailing" constant="10" id="w74-dK-imi"/>
                         </constraints>
@@ -514,8 +514,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="googleSignInBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="Mvc-sF-nZy"/>
-                                    <action selector="googleSignInBtn:" destination="jym-Jp-gzM" eventType="touchUpInside" id="cEA-tm-h2Z"/>
+                                    <action selector="googleSignInBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="HTg-4F-81p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qw-j7-Rij">
@@ -530,10 +529,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="facebookBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="pL7-Co-1oc"/>
-                                    <action selector="facebookBtnTapped:" destination="hdH-xt-REi" eventType="touchUpInside" id="BnD-s7-c5z"/>
-                                    <action selector="googleSignInBtn:" destination="jym-Jp-gzM" eventType="touchUpInside" id="Iv9-q8-Cid"/>
-                                    <action selector="googleSignInBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="wKR-hN-nJE"/>
+                                    <action selector="facebookBtnTapped:" destination="hdH-xt-REi" eventType="touchUpInside" id="0dE-Am-46t"/>
                                 </connections>
                             </button>
                         </subviews>
