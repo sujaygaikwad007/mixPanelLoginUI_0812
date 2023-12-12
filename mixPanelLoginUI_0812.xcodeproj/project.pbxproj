@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F0F01182B2718F7000BD387 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0F01172B2718F7000BD387 /* WelcomeViewController.swift */; };
 		1F0F011C2B272501000BD387 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F0F011B2B272501000BD387 /* GoogleService-Info.plist */; };
+		1F1561D02B282FC6006452E3 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1561CF2B282FC6006452E3 /* Checkbox.swift */; };
 		1F2B6CB62B22EE2A0062BEB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6CB52B22EE2A0062BEB0 /* AppDelegate.swift */; };
 		1F2B6CB82B22EE2A0062BEB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */; };
 		1F2B6CBA2B22EE2A0062BEB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6CB92B22EE2A0062BEB0 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		1F0F01172B2718F7000BD387 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1F0F011B2B272501000BD387 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F1561CF2B282FC6006452E3 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		1F2B6CB22B22EE2A0062BEB0 /* mixPanelLoginUI_0812.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixPanelLoginUI_0812.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2B6CB52B22EE2A0062BEB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */,
 				1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */,
 				1F2B6CC32B22EE2F0062BEB0 /* Info.plist */,
+				1F1561CF2B282FC6006452E3 /* Checkbox.swift */,
 			);
 			path = mixPanelLoginUI_0812;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1561D02B282FC6006452E3 /* Checkbox.swift in Sources */,
 				1F2B6CBA2B22EE2A0062BEB0 /* ViewController.swift in Sources */,
 				1FDEB02D2B26E3EC003A2B37 /* File.swift in Sources */,
 				1F2B6CB62B22EE2A0062BEB0 /* AppDelegate.swift in Sources */,

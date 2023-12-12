@@ -10,8 +10,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var txtSignInUserName: UITextField!
     @IBOutlet weak var txtSignInPass: UITextField!
-    
-    
     @IBOutlet weak var googleSignInBtn: UIButton!
     
     var iconClick = false
@@ -31,6 +29,9 @@ class SignInViewController: UIViewController {
         addIconToTextField(textField: txtSignInPass, iconName: "openlock")
         
         eyeIconTxtField(for: txtSignInPass, with: UIImageView())
+        
+        let checkboxManager = CheckboxManager.shared
+             let (checkbox, label) = checkboxManager.createCheckbox(targetView: self.view, position: CGPoint(x: 35 , y: 520), text: "Remember Me")
         
     }
     

@@ -35,6 +35,8 @@ class CreateAccountViewController: UIViewController {
         eyeIconTxtField(for: txtSignUpConfirmPass, with: UIImageView())
         
         
+        let checkboxManager = CheckboxManager.shared
+        let (checkbox, label) = checkboxManager.createCheckbox(targetView: self.view, position: CGPoint(x: 45 , y: 632), text: "I agree to the")
         
     }
     
@@ -48,68 +50,68 @@ class CreateAccountViewController: UIViewController {
         
         
         
+        
+        if txtSignUpUsername.text!.isEmpty
+        {
+            showToast(controller: self, message: "Please Enter a username", seconds: 2)
+            txtSignUpUsername.layer.borderColor = UIColor.red.cgColor
             
-            if txtSignUpUsername.text!.isEmpty
-            {
-                showToast(controller: self, message: "Please Enter a username", seconds: 2)
-                txtSignUpUsername.layer.borderColor = UIColor.red.cgColor
-                
-            }
-            else if txtSignUpEmail.text!.isEmpty
-            {
-                showToast(controller: self, message: "Please Enter Email", seconds: 2)
-                txtSignUpEmail.layer.borderColor = UIColor.red.cgColor
-                
-                
-            }
-            else if !(txtSignUpEmail.text?.isEmailValid)!
-            {
-                showToast(controller: self, message: "Please Enter a valid email", seconds: 2)
-                txtSignUpEmail.layer.borderColor = UIColor.red.cgColor
-            }
-            else if txtSignUpPass.text!.isEmpty
-            {
-                showToast(controller: self, message: "Password field should not be empty", seconds: 2)
-                txtSignUpPass.layer.borderColor = UIColor.red.cgColor
-                
-            }
-            else if !(txtSignUpPass.text?.isPasswordValid)!
-            {
-                showToast(controller: self, message: "Please Enter a valid password", seconds: 2)
-                txtSignUpPass.layer.borderColor = UIColor.red.cgColor
-            }
-            else if txtSignUpConfirmPass.text!.isEmpty
-            {
-                showToast(controller: self, message: "Password field should not be empty", seconds: 2)
-                txtSignUpConfirmPass.layer.borderColor = UIColor.red.cgColor
-                
-                
-            }
-            else if txtSignUpPass.text != txtSignUpConfirmPass.text
-            {
-                showToast(controller: self, message: "Passwords do not match", seconds: 2)
-                txtSignUpConfirmPass.layer.borderColor = UIColor.red.cgColor
-            }
-            else
-            {
-                showToast(controller: self, message: "Account Created Successfully", seconds: 2)
-
-
-                Mixpanel.mainInstance().identify(distinctId: userName!)
-                Mixpanel.mainInstance().people.set(properties: ["$email": email, "$name" : userName])
-                Mixpanel.mainInstance().track(event: "Sign UP...", properties:
-                                                ["UserName" : userName,
-                                                 "Password" : password
-                                                ])
-            }
+        }
+        else if txtSignUpEmail.text!.isEmpty
+        {
+            showToast(controller: self, message: "Please Enter Email", seconds: 2)
+            txtSignUpEmail.layer.borderColor = UIColor.red.cgColor
             
+            
+        }
+        else if !(txtSignUpEmail.text?.isEmailValid)!
+        {
+            showToast(controller: self, message: "Please Enter a valid email", seconds: 2)
+            txtSignUpEmail.layer.borderColor = UIColor.red.cgColor
+        }
+        else if txtSignUpPass.text!.isEmpty
+        {
+            showToast(controller: self, message: "Password field should not be empty", seconds: 2)
+            txtSignUpPass.layer.borderColor = UIColor.red.cgColor
+            
+        }
+        else if !(txtSignUpPass.text?.isPasswordValid)!
+        {
+            showToast(controller: self, message: "Please Enter a valid password", seconds: 2)
+            txtSignUpPass.layer.borderColor = UIColor.red.cgColor
+        }
+        else if txtSignUpConfirmPass.text!.isEmpty
+        {
+            showToast(controller: self, message: "Password field should not be empty", seconds: 2)
+            txtSignUpConfirmPass.layer.borderColor = UIColor.red.cgColor
+            
+            
+        }
+        else if txtSignUpPass.text != txtSignUpConfirmPass.text
+        {
+            showToast(controller: self, message: "Passwords do not match", seconds: 2)
+            txtSignUpConfirmPass.layer.borderColor = UIColor.red.cgColor
+        }
+        else
+        {
+            showToast(controller: self, message: "Account Created Successfully", seconds: 2)
+            
+            
+            Mixpanel.mainInstance().identify(distinctId: userName!)
+            Mixpanel.mainInstance().people.set(properties: ["$email": email, "$name" : userName])
+            Mixpanel.mainInstance().track(event: "Sign UP...", properties:
+                                            ["UserName" : userName,
+                                             "Password" : password
+                                            ])
+        }
+        
     }
     
     
     @IBAction func signInBtn(_ sender: UIButton) {
         
-      
-         navigationController?.popViewController(animated: true)
+        
+        navigationController?.popViewController(animated: true)
         
         
     }
