@@ -531,6 +531,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="facebookBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="pL7-Co-1oc"/>
+                                    <action selector="facebookBtnTapped:" destination="hdH-xt-REi" eventType="touchUpInside" id="BnD-s7-c5z"/>
                                     <action selector="googleSignInBtn:" destination="jym-Jp-gzM" eventType="touchUpInside" id="Iv9-q8-Cid"/>
                                     <action selector="googleSignInBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="wKR-hN-nJE"/>
                                 </connections>
