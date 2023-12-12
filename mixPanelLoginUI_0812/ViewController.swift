@@ -7,6 +7,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var signupBtn: UIButton!
     
+    @IBOutlet weak var firebaseBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signupBtn.layer.cornerRadius = 20
@@ -23,7 +26,19 @@ class ViewController: UIViewController {
         let signInVC = storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
         self.navigationController?.pushViewController(signInVC, animated: true)
     }
+    
+    
+    @IBAction func firebaseBtnTapped(_ sender: UIButton) {
+        
+        let firebaseInVC = storyboard?.instantiateViewController(withIdentifier: "FirebaseViewController") as! FirebaseViewController
+        self.navigationController?.pushViewController(firebaseInVC, animated: true)
+    }
+    
+    
+    
 }
+    
+    
 
 
 

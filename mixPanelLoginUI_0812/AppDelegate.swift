@@ -3,6 +3,10 @@ import UIKit
 import Mixpanel
 import GoogleSignIn
 import Firebase
+import FacebookCore
+import FacebookLogin
+import FirebaseAuth
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance.handle(url)
+    }
+    
+    
+    func login(credential: AuthCredential, completionBlock: @escaping (_ success: Bool) -> Void) {
+        Auth.auth().signIn(with: credential, completion: { (firebaseUser, error) in
+            print(firebaseUser)
+            completionBlock(error == nil)
+        })
     }
     
     

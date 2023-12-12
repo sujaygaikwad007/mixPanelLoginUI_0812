@@ -1,8 +1,6 @@
 import UIKit
 import Mixpanel
-import FirebaseAuth
-import GoogleSignIn
-import FirebaseCore
+
 
 class SignInViewController: UIViewController {
     
@@ -10,7 +8,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var txtSignInUserName: UITextField!
     @IBOutlet weak var txtSignInPass: UITextField!
-    @IBOutlet weak var googleSignInBtn: UIButton!
     
     var iconClick = false
     
@@ -82,37 +79,11 @@ class SignInViewController: UIViewController {
     
     
     
-    @IBAction func googleSignInBtn(_ sender: UIButton) {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-
-        // Create Google Sign In configuration object.
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-
-        // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
-          guard error == nil else {
-            return
-          }
-
-          guard let user = result?.user,
-            let idToken = user.idToken?.tokenString
-          else {
-            return
-          }
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: user.accessToken.tokenString)
-            print("googleSignInBtn--- \(credential)")
-
-        }
-    }
     
     //Add corner Radius to the textField ---- Start
     func cornerRadiusTxtField()
     {
         signInBtn.layer.cornerRadius = 20
-        googleSignInBtn.layer.cornerRadius = 20
         
         txtSignInUserName.layer.borderWidth = 1
         txtSignInUserName.layer.cornerRadius = 20

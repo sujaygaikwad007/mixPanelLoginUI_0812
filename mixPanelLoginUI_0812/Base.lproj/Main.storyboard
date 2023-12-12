@@ -79,6 +79,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt8-Hd-wGe">
+                                <rect key="frame" x="168" y="629" width="80" height="40"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wZk-aw-U5b"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999994039999995" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Firebase"/>
+                                <connections>
+                                    <action selector="firebaseBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qG-z0-QNA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.22389817240000001" green="0.39896029230000002" blue="0.85232782360000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,6 +99,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YwJ-Hb-NNZ" secondAttribute="trailing" constant="10" id="5I6-uf-YKn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6AD-pz-8l7" secondAttribute="trailing" id="6Bk-ee-TfA"/>
                             <constraint firstItem="Fy2-Hj-vUt" firstAttribute="top" secondItem="tFz-7y-8by" secondAttribute="bottom" constant="203.5" id="9cR-LI-T43"/>
+                            <constraint firstItem="Dt8-Hd-wGe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="168" id="Ire-8D-Fqy"/>
+                            <constraint firstItem="Fy2-Hj-vUt" firstAttribute="top" secondItem="Dt8-Hd-wGe" secondAttribute="bottom" constant="51" id="Kjp-UW-VgC"/>
                             <constraint firstItem="YwJ-Hb-NNZ" firstAttribute="top" secondItem="Fy2-Hj-vUt" secondAttribute="bottom" constant="27" id="La0-15-gcT"/>
                             <constraint firstItem="6AD-pz-8l7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OSu-Mo-gmx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fy2-Hj-vUt" secondAttribute="trailing" constant="20" id="QWo-li-Ebk"/>
@@ -96,12 +111,14 @@
                             <constraint firstItem="lm9-yq-96U" firstAttribute="top" secondItem="6AD-pz-8l7" secondAttribute="bottom" constant="10" id="lrW-Ox-SlI"/>
                             <constraint firstItem="tFz-7y-8by" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="lsl-Ld-2OK"/>
                             <constraint firstItem="Fy2-Hj-vUt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mRs-yE-xAT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dt8-Hd-wGe" secondAttribute="trailing" constant="166" id="n5j-oH-BLL"/>
                             <constraint firstItem="lm9-yq-96U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="r5j-18-no5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lm9-yq-96U" secondAttribute="trailing" constant="10" id="w74-dK-imi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ven-nA-sju"/>
                     <connections>
+                        <outlet property="firebaseBtn" destination="Dt8-Hd-wGe" id="MDQ-6h-RWs"/>
                         <outlet property="signupBtn" destination="Fy2-Hj-vUt" id="EXF-qj-9A4"/>
                     </connections>
                 </viewController>
@@ -159,7 +176,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PCR-zH-gyU">
-                                <rect key="frame" x="10" y="737.5" width="394" height="104.5"/>
+                                <rect key="frame" x="10" y="786" width="394" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't you have an account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-ck-xMU">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
@@ -169,7 +186,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="or5-t5-1je">
-                                        <rect key="frame" x="0.0" y="20.5" width="394" height="84"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="394" height="35.5"/>
                                         <color key="tintColor" red="0.2230424583" green="0.4041250348" blue="0.84866791959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up from here">
@@ -193,23 +210,8 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="15"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfI-XD-C6B">
-                                <rect key="frame" x="50" y="666.5" width="314" height="35"/>
-                                <color key="backgroundColor" red="0.2230424583" green="0.4041250348" blue="0.84866791959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="fDX-k1-vB8"/>
-                                </constraints>
-                                <color key="tintColor" red="0.99999994039999995" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Google Sign-In">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="googleSignInBtn:" destination="jym-Jp-gzM" eventType="touchUpInside" id="MKK-LT-lWb"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBe-fL-Flf">
-                                <rect key="frame" x="20" y="587.5" width="374" height="40"/>
+                                <rect key="frame" x="20" y="699" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.2204503119" green="0.40687000750000002" blue="0.82995003460000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2hh-lr-N3i"/>
@@ -230,13 +232,9 @@
                         <constraints>
                             <constraint firstItem="Opr-wp-HTr" firstAttribute="trailing" secondItem="tpT-lZ-uH0" secondAttribute="trailing" id="0iZ-kD-ARr"/>
                             <constraint firstItem="6iZ-dM-cyh" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" constant="30" id="0tR-d6-UA7"/>
-                            <constraint firstItem="PCR-zH-gyU" firstAttribute="top" secondItem="YfI-XD-C6B" secondAttribute="bottom" constant="36" id="1h1-LA-R9e"/>
                             <constraint firstItem="tpT-lZ-uH0" firstAttribute="bottom" secondItem="PCR-zH-gyU" secondAttribute="bottom" constant="20" id="3dv-SP-FEo"/>
-                            <constraint firstItem="tpT-lZ-uH0" firstAttribute="trailing" secondItem="YfI-XD-C6B" secondAttribute="trailing" constant="50" id="5X8-2f-Bh7"/>
-                            <constraint firstItem="XBe-fL-Flf" firstAttribute="top" secondItem="XIs-dC-gwK" secondAttribute="bottom" constant="45" id="9YT-qM-gT2"/>
                             <constraint firstItem="rE2-ax-cg8" firstAttribute="top" secondItem="6iZ-dM-cyh" secondAttribute="bottom" constant="18" id="Hwf-cu-QCT"/>
                             <constraint firstItem="XIs-dC-gwK" firstAttribute="top" secondItem="rE2-ax-cg8" secondAttribute="bottom" constant="8" symbolic="YES" id="ImG-GF-V9p"/>
-                            <constraint firstItem="YfI-XD-C6B" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" constant="50" id="K3G-HC-89o"/>
                             <constraint firstItem="tpT-lZ-uH0" firstAttribute="trailing" secondItem="6iZ-dM-cyh" secondAttribute="trailing" constant="30" id="MNF-Dv-Nwp"/>
                             <constraint firstItem="XBe-fL-Flf" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" constant="20" id="PUS-oR-lBv"/>
                             <constraint firstItem="Opr-wp-HTr" firstAttribute="top" secondItem="kkS-YN-e0F" secondAttribute="top" id="Rzx-u7-snt"/>
@@ -244,11 +242,11 @@
                             <constraint firstItem="tpT-lZ-uH0" firstAttribute="trailing" secondItem="rE2-ax-cg8" secondAttribute="trailing" constant="30" id="UBx-b8-bqD"/>
                             <constraint firstItem="6iZ-dM-cyh" firstAttribute="top" secondItem="KC3-uh-VlF" secondAttribute="bottom" constant="40" id="Wee-rR-zXA"/>
                             <constraint firstItem="KC3-uh-VlF" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" constant="5" id="XEK-rU-Ixr"/>
-                            <constraint firstItem="YfI-XD-C6B" firstAttribute="top" secondItem="XBe-fL-Flf" secondAttribute="bottom" constant="39" id="XJ7-Bd-TTO"/>
                             <constraint firstItem="tpT-lZ-uH0" firstAttribute="trailing" secondItem="XBe-fL-Flf" secondAttribute="trailing" constant="20" id="Yw5-H7-DGE"/>
                             <constraint firstItem="tpT-lZ-uH0" firstAttribute="trailing" secondItem="PCR-zH-gyU" secondAttribute="trailing" constant="10" id="cPS-gA-PDJ"/>
                             <constraint firstItem="PCR-zH-gyU" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" constant="10" id="i2i-mG-MAG"/>
                             <constraint firstItem="KC3-uh-VlF" firstAttribute="top" secondItem="Opr-wp-HTr" secondAttribute="bottom" constant="61" id="nd7-HD-xe7"/>
+                            <constraint firstItem="PCR-zH-gyU" firstAttribute="top" secondItem="XBe-fL-Flf" secondAttribute="bottom" constant="47" id="nf5-Nt-871"/>
                             <constraint firstItem="Opr-wp-HTr" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" id="ovl-1O-o7x"/>
                             <constraint firstItem="tpT-lZ-uH0" firstAttribute="trailing" secondItem="KC3-uh-VlF" secondAttribute="trailing" constant="5" id="r86-Mf-Ihk"/>
                             <constraint firstItem="rE2-ax-cg8" firstAttribute="leading" secondItem="tpT-lZ-uH0" secondAttribute="leading" constant="30" id="wLu-eT-IAC"/>
@@ -256,7 +254,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="googleSignInBtn" destination="YfI-XD-C6B" id="2jG-3U-zb9"/>
                         <outlet property="roundedUIView" destination="Opr-wp-HTr" id="W25-IH-jEw"/>
                         <outlet property="signInBtn" destination="XBe-fL-Flf" id="l2q-9U-QtP"/>
                         <outlet property="txtSignInPass" destination="rE2-ax-cg8" id="jWa-KK-jKE"/>
@@ -497,9 +494,71 @@
             </objects>
             <point key="canvasLocation" x="3118.840579710145" y="65.625"/>
         </scene>
+        <!--Firebase View Controller-->
+        <scene sceneID="M06-K3-Kat">
+            <objects>
+                <viewController storyboardIdentifier="FirebaseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hdH-xt-REi" customClass="FirebaseViewController" customModule="mixPanelLoginUI_0812" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YOz-o5-mX0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVU-0a-CXu">
+                                <rect key="frame" x="50" y="331" width="314" height="40"/>
+                                <color key="backgroundColor" red="0.2230424583" green="0.4041250348" blue="0.84866791959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="w7W-Cd-4j6"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999994039999995" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Google Sign-In">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="googleSignInBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="Mvc-sF-nZy"/>
+                                    <action selector="googleSignInBtn:" destination="jym-Jp-gzM" eventType="touchUpInside" id="cEA-tm-h2Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qw-j7-Rij">
+                                <rect key="frame" x="50" y="412" width="314" height="40"/>
+                                <color key="backgroundColor" red="0.2230424583" green="0.4041250348" blue="0.84866791959999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kGP-iF-6a9"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999994039999995" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Facebook">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="facebookBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="pL7-Co-1oc"/>
+                                    <action selector="googleSignInBtn:" destination="jym-Jp-gzM" eventType="touchUpInside" id="Iv9-q8-Cid"/>
+                                    <action selector="googleSignInBtn:" destination="hdH-xt-REi" eventType="touchUpInside" id="wKR-hN-nJE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2hk-6O-fhM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2hk-6O-fhM" firstAttribute="bottom" secondItem="2Qw-j7-Rij" secondAttribute="bottom" constant="410" id="4EJ-OP-paO"/>
+                            <constraint firstItem="2Qw-j7-Rij" firstAttribute="top" secondItem="eVU-0a-CXu" secondAttribute="bottom" constant="41" id="LA1-zJ-aTJ"/>
+                            <constraint firstItem="2hk-6O-fhM" firstAttribute="trailing" secondItem="2Qw-j7-Rij" secondAttribute="trailing" constant="50" id="RI0-9A-kjM"/>
+                            <constraint firstItem="2Qw-j7-Rij" firstAttribute="leading" secondItem="2hk-6O-fhM" secondAttribute="leading" constant="50" id="Tn4-NO-Hjj"/>
+                            <constraint firstItem="2hk-6O-fhM" firstAttribute="trailing" secondItem="eVU-0a-CXu" secondAttribute="trailing" constant="50" id="pah-n6-eFQ"/>
+                            <constraint firstItem="eVU-0a-CXu" firstAttribute="leading" secondItem="2hk-6O-fhM" secondAttribute="leading" constant="50" id="rl9-bV-eld"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <navigationItem id="fgF-us-0sA"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKn-Qi-ya1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3834.7826086956525" y="62.946428571428569"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MoneyRm" width="500" height="500"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
