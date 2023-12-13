@@ -1,5 +1,6 @@
 import UIKit
 import Mixpanel
+import Firebase
 
 class CreateAccountViewController: UIViewController {
     
@@ -48,9 +49,6 @@ class CreateAccountViewController: UIViewController {
         let email = txtSignUpEmail.text
         let password = txtSignUpPass.text
         
-        
-        
-        
         if txtSignUpUsername.text!.isEmpty
         {
             showToast(controller: self, message: "Please Enter a username", seconds: 2)
@@ -61,8 +59,6 @@ class CreateAccountViewController: UIViewController {
         {
             showToast(controller: self, message: "Please Enter Email", seconds: 2)
             txtSignUpEmail.layer.borderColor = UIColor.red.cgColor
-            
-            
         }
         else if !(txtSignUpEmail.text?.isEmailValid)!
         {
@@ -94,7 +90,7 @@ class CreateAccountViewController: UIViewController {
         }
         else
         {
-            showToast(controller: self, message: "Account Created Successfully", seconds: 2)
+            firebaseSignUp()
             
             
             Mixpanel.mainInstance().identify(distinctId: userName!)
@@ -104,16 +100,11 @@ class CreateAccountViewController: UIViewController {
                                              "Password" : password
                                             ])
         }
-        
     }
     
     
     @IBAction func signInBtn(_ sender: UIButton) {
-        
-        
         navigationController?.popViewController(animated: true)
-        
-        
     }
     
     //Add corner Radius to the textField ---- Start
@@ -160,8 +151,6 @@ class CreateAccountViewController: UIViewController {
     }
     
     
-    
-    
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
         guard let tappedImageView = sender.view as? UIImageView else { return }
         guard let textField = tappedImageView.superview?.superview as? UITextField else { return }
@@ -176,13 +165,33 @@ class CreateAccountViewController: UIViewController {
             textField.isSecureTextEntry = true
         }
     }
-    
-    
-    
-    
     //Code for Eye icon for password hide and show ---End
     
+    
+    func firebaseSignUp(){
+      guard let email = txtSignUpEmail.text ,let password = txtSignUpConfirmPass.text else
+      {
+          return
+      }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error{
+                print("Error creating user: \(error.localizedDescription)")
+            } else {
+                print("User created successfully")
+                showToast(controller: self, message: "Account Created Successfully", seconds: 3)
+                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
+                self.navigationController?.pushViewController(signInVC, animated: true)
+
+            }
+            
+        }
+        
+        
+    }
 }
+
+
 
 
 
@@ -198,7 +207,6 @@ extension CreateAccountViewController : UITextFieldDelegate
         
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.blue.cgColor
-        
         
         
         if textField == txtSignUpUsername

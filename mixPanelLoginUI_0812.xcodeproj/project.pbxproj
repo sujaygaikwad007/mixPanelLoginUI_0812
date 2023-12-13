@@ -16,6 +16,8 @@
 		1F2B6CBD2B22EE2A0062BEB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CBB2B22EE2A0062BEB0 /* Main.storyboard */; };
 		1F2B6CBF2B22EE2F0062BEB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */; };
 		1F2B6CC22B22EE2F0062BEB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */; };
+		1F637D942B29C27F00C1FD35 /* ResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F637D922B29C27F00C1FD35 /* ResultTableCell.swift */; };
+		1F637D952B29C27F00C1FD35 /* ResultTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F637D932B29C27F00C1FD35 /* ResultTableCell.xib */; };
 		1F7B5DF62B22FF610074F239 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF52B22FF610074F239 /* SignInViewController.swift */; };
 		1F7B5DF82B22FF7C0074F239 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */; };
 		1F908D272B28630A0011CABE /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F908D262B28630A0011CABE /* FirebaseViewController.swift */; };
@@ -27,6 +29,7 @@
 		1F0F01172B2718F7000BD387 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		1F0F011B2B272501000BD387 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F1561CF2B282FC6006452E3 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		1F1A45F72B2992A9006090A1 /* mixPanelLoginUI_0812.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mixPanelLoginUI_0812.entitlements; sourceTree = "<group>"; };
 		1F2B6CB22B22EE2A0062BEB0 /* mixPanelLoginUI_0812.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mixPanelLoginUI_0812.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2B6CB52B22EE2A0062BEB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +38,8 @@
 		1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2B6CC12B22EE2F0062BEB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F2B6CC32B22EE2F0062BEB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F637D922B29C27F00C1FD35 /* ResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableCell.swift; sourceTree = "<group>"; };
+		1F637D932B29C27F00C1FD35 /* ResultTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableCell.xib; sourceTree = "<group>"; };
 		1F7B5DF52B22FF610074F239 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		1F908D262B28630A0011CABE /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +82,8 @@
 		1F2B6CB42B22EE2A0062BEB0 /* mixPanelLoginUI_0812 */ = {
 			isa = PBXGroup;
 			children = (
+				1F637D8F2B29C21100C1FD35 /* Cell */,
+				1F1A45F72B2992A9006090A1 /* mixPanelLoginUI_0812.entitlements */,
 				1F0F011B2B272501000BD387 /* GoogleService-Info.plist */,
 				1F2B6CB52B22EE2A0062BEB0 /* AppDelegate.swift */,
 				1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */,
@@ -93,6 +100,15 @@
 				1F1561CF2B282FC6006452E3 /* Checkbox.swift */,
 			);
 			path = mixPanelLoginUI_0812;
+			sourceTree = "<group>";
+		};
+		1F637D8F2B29C21100C1FD35 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1F637D922B29C27F00C1FD35 /* ResultTableCell.swift */,
+				1F637D932B29C27F00C1FD35 /* ResultTableCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9CE8C28EE3B95922BB839B70 /* Frameworks */ = {
@@ -175,6 +191,7 @@
 				1F2B6CC22B22EE2F0062BEB0 /* LaunchScreen.storyboard in Resources */,
 				1F0F011C2B272501000BD387 /* GoogleService-Info.plist in Resources */,
 				1F2B6CBF2B22EE2F0062BEB0 /* Assets.xcassets in Resources */,
+				1F637D952B29C27F00C1FD35 /* ResultTableCell.xib in Resources */,
 				1F2B6CBD2B22EE2A0062BEB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F908D272B28630A0011CABE /* FirebaseViewController.swift in Sources */,
+				1F637D942B29C27F00C1FD35 /* ResultTableCell.swift in Sources */,
 				1F1561D02B282FC6006452E3 /* Checkbox.swift in Sources */,
 				1F2B6CBA2B22EE2A0062BEB0 /* ViewController.swift in Sources */,
 				1FDEB02D2B26E3EC003A2B37 /* File.swift in Sources */,
@@ -384,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mixPanelLoginUI_0812/mixPanelLoginUI_0812.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -413,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = mixPanelLoginUI_0812/mixPanelLoginUI_0812.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

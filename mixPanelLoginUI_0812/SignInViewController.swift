@@ -1,5 +1,6 @@
 import UIKit
 import Mixpanel
+import Firebase
 
 
 class SignInViewController: UIViewController {
@@ -28,7 +29,7 @@ class SignInViewController: UIViewController {
         eyeIconTxtField(for: txtSignInPass, with: UIImageView())
         
         let checkboxManager = CheckboxManager.shared
-             let (checkbox, label) = checkboxManager.createCheckbox(targetView: self.view, position: CGPoint(x: 35 , y: 520), text: "Remember Me")
+        let (checkbox, label) = checkboxManager.createCheckbox(targetView: self.view, position: CGPoint(x: 35 , y: 520), text: "Remember Me")
         
     }
     
@@ -54,18 +55,15 @@ class SignInViewController: UIViewController {
         else
         {
             
-            
-            let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-            self.navigationController?.pushViewController(welcomeVC, animated: true)
+            firebaseSignUp()
+            txtSignInUserName.text = ""
+            txtSignInPass.text = ""
             
             Mixpanel.mainInstance().identify(distinctId: userName!)
             Mixpanel.mainInstance().track(event: "Sign In...", properties:
                                             ["UserName" : userName,
                                              "Password" : password
                                             ])
-            
-           // print("UserName is \(userName)")
-            
         }
     }
     
@@ -76,8 +74,6 @@ class SignInViewController: UIViewController {
         self.navigationController?.pushViewController(signUpVC, animated: true)
         
     }
-    
-    
     
     
     //Add corner Radius to the textField ---- Start
@@ -93,9 +89,6 @@ class SignInViewController: UIViewController {
         
     }
     //Add corner Radius to the textField ---- End
-    
-    
-    
     
     
     //Code for Eye icon for password hide and show ---Start
@@ -118,32 +111,55 @@ class SignInViewController: UIViewController {
         passIcon.isUserInteractionEnabled = true
         passIcon.addGestureRecognizer(tapGesture)
     }
-
-
-
-
+    
+    
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
         guard let tappedImageView = sender.view as? UIImageView else { return }
         guard let textField = tappedImageView.superview?.superview as? UITextField else { return }
-
+        
         if iconClick {
             iconClick = false
             tappedImageView.image = UIImage(named: "open")
+            addIconToTextField(textField: txtSignInPass, iconName: "openlock")
+            
             textField.isSecureTextEntry = false
         } else {
             iconClick = true
             tappedImageView.image = UIImage(named: "close")
+            addIconToTextField(textField: txtSignInPass, iconName: "filledlock")
+            
             textField.isSecureTextEntry = true
         }
     }
-
-
-
     
     //Code for Eye icon for password hide and show ---End
     
     
-   
+    func firebaseSignUp(){
+        guard let email = txtSignInUserName.text ,let password = txtSignInPass.text else
+        {
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error{
+                
+                print("Error creating user: \(error.localizedDescription)")
+                showToast(controller: self, message: "Account Doesn't Exists", seconds: 2)
+                self.txtSignInUserName.layer.borderColor = UIColor.red.cgColor
+                self.txtSignInPass.layer.borderColor = UIColor.red.cgColor
+
+                
+            } else {
+                print("User created successfully")
+                let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+                self.navigationController?.pushViewController(welcomeVC, animated: true)
+            }
+            
+        }
+        
+        
+    }
     
 }
 
@@ -154,24 +170,19 @@ extension SignInViewController : UITextFieldDelegate
     //Code for add border color after selecting--Start
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-            
-            textField.layer.borderWidth = 1
-            textField.layer.borderColor = UIColor.blue.cgColor
-            
+        
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.blue.cgColor
+        
         
         if textField == txtSignInUserName
         {
             addIconToTextField(textField: txtSignInUserName, iconName: "userfilled")
-
         }
         else if textField == txtSignInPass
         {
-            addIconToTextField(textField: txtSignInPass, iconName: "filledlock")
-
-        }
             
-        
-        
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -179,9 +190,6 @@ extension SignInViewController : UITextFieldDelegate
         textField.layer.borderColor = UIColor.lightGray.cgColor
         
         addIconToTextField(textField: txtSignInUserName, iconName: "user")
-        addIconToTextField(textField: txtSignInPass, iconName: "openlock")
-        
-        
     }
     //Code for add border color after selecting-- End
 }

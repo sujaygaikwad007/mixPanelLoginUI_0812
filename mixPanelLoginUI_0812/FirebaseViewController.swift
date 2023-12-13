@@ -6,8 +6,18 @@ import FirebaseCore
 import GoogleSignIn
 import FacebookCore
 import FacebookLogin
+import AuthenticationServices
 
-class FirebaseViewController: UIViewController {
+
+class FirebaseViewController: UIViewController, ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window ?? ASPresentationAnchor()
+
+    }
+    
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +88,58 @@ class FirebaseViewController: UIViewController {
     }
     
     
+    @IBAction func appleIdBtn(_ sender: UIButton) {
+        
+        
+        if #available(iOS 13.0, *){
+            startSignInWithApple()
+        } else {
+            print("invalid ios version")
+        }
+    }
+    
+    
+    @available(iOS 13.0, *)
+    func startSignInWithApple(){
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+    
     
 }
 
+extension FirebaseViewController: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIdCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            
+            let userId = appleIdCredential.user
+            
+            if let identityTokenData = appleIdCredential.identityToken {
+                if let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
+                    let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: identityTokenString, rawNonce: nil)
+                    
+                    Auth.auth().signIn(with: credential) { (authResult, error) in
+                        if let error = error {
+                            print("Error signing in with Apple: \(error.localizedDescription)")
+                            return
+                        }
+                        // User signed in successfully
+                    }
+                } else {
+                    print("Error converting identityToken to string")
+                }
+            } else {
+                print("Error: No identityToken found")
+            }
+        }
+    }
+}
 
 
 
