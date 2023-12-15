@@ -4,13 +4,13 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-
-
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var textTableData: UITableView!
     @IBOutlet weak var lblDisplayUserName: UILabel!
+    
     var users: [User] = []
+    var currentUser: User?
     
     
     override func viewDidLoad() {
@@ -21,49 +21,40 @@ class WelcomeViewController: UIViewController {
         
         textTableData.register(UINib(nibName: "ResultTableCell", bundle: .none), forCellReuseIdentifier: "ResultTableCell")
         
-        fetchUserFromFirebase()
+       fetchUserFromFirebase()
         
     }
     
     
     
     
-    
-    func fetchUserFromFirebase()
-    {
+    func fetchUserFromFirebase() {
         let ref = Database.database().reference().child("users")
-        
+
         ref.observe(.value) { snapshot in
             self.users.removeAll()
-            
-            for child in snapshot.children{
-                if let childsnapshot = child as? DataSnapshot,
-                   let userData = childsnapshot.value as? [String:Any],
+
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                   let userData = childSnapshot.value as? [String:Any],
                    let username = userData["username"] as? String,
                    let email = userData["email"] as? String,
-                   let uid = userData ["uid"] as? String
-                   {
-                    
-                    let user = User(username: username, email: email,uid:uid)
-    
-                    self.lblDisplayUserName.text = "Welcome \(username)"
-                   
+                   let uid = userData["uid"] as? String
+                {
 
-                    
-                    print("Users display on table -----\(user)")
+                    let user = User(username: username, email: email, uid: uid)
+                    self.lblDisplayUserName.text = "Welcome"
                     self.users.append(user)
                 }
-                
             }
+
+
             DispatchQueue.main.async {
                 self.textTableData.reloadData()
             }
-            
-            
         }
-        
-        
     }
+    
     
     
     
