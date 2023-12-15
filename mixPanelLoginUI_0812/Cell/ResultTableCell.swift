@@ -6,7 +6,8 @@ class ResultTableCell: UITableViewCell {
     
     
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var lblResult: UILabel!
+    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var lblUserEmail: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

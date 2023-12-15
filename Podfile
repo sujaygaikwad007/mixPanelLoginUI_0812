@@ -16,5 +16,6 @@ target 'mixPanelLoginUI_0812' do
     pod 'FacebookShare'
     pod 'Firebase'
     pod 'FirebaseFirestore'
+    pod 'Firebase/Database'
 
 end

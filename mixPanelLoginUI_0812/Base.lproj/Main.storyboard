@@ -173,7 +173,7 @@
                                     <constraint firstAttribute="height" constant="50" id="afC-FO-6pa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PCR-zH-gyU">
                                 <rect key="frame" x="10" y="734" width="370" height="56"/>
@@ -340,7 +340,7 @@
                                     <constraint firstAttribute="height" constant="50" id="9ct-4v-KkF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confiirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFl-5e-Gvq">
                                 <rect key="frame" x="30" y="568" width="330" height="50"/>
@@ -348,7 +348,7 @@
                                     <constraint firstAttribute="height" constant="50" id="3R2-x8-1Ty"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za1-Ma-2VD">
                                 <rect key="frame" x="16" y="679.66666666666663" width="358" height="38"/>
@@ -458,17 +458,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="riN-E1-pJg">
-                                        <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dFE-He-nsY">
+                                        <rect key="frame" x="0.0" y="135" width="390" height="675"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iR-3S-3pA">
+                                        <rect key="frame" x="10" y="105" width="370" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjA-Jw-Hdn">
+                                        <rect key="frame" x="253" y="54" width="110" height="31"/>
+                                        <color key="backgroundColor" red="0.2272483706" green="0.40778806810000001" blue="0.85251915450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign out"/>
+                                        <connections>
+                                            <action selector="signOutBtn:" destination="UVT-x2-6k0" eventType="touchUpInside" id="1CU-3e-3Mh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="Hbz-S0-iuW"/>
                                 <constraints>
-                                    <constraint firstItem="Hbz-S0-iuW" firstAttribute="bottom" secondItem="riN-E1-pJg" secondAttribute="bottom" id="NVY-UX-w74"/>
-                                    <constraint firstItem="Hbz-S0-iuW" firstAttribute="trailing" secondItem="riN-E1-pJg" secondAttribute="trailing" id="OGb-JC-59W"/>
-                                    <constraint firstItem="riN-E1-pJg" firstAttribute="leading" secondItem="Hbz-S0-iuW" secondAttribute="leading" id="Pmu-90-CnH"/>
-                                    <constraint firstItem="riN-E1-pJg" firstAttribute="top" secondItem="Hbz-S0-iuW" secondAttribute="top" id="vUh-9a-j7F"/>
+                                    <constraint firstItem="dFE-He-nsY" firstAttribute="top" secondItem="4iR-3S-3pA" secondAttribute="bottom" constant="30" id="9Bd-Je-dfJ"/>
+                                    <constraint firstItem="dFE-He-nsY" firstAttribute="bottom" secondItem="Hbz-S0-iuW" secondAttribute="bottom" id="DVN-vj-lhH"/>
+                                    <constraint firstItem="FjA-Jw-Hdn" firstAttribute="leading" secondItem="Hbz-S0-iuW" secondAttribute="leading" constant="253" id="Jp1-cN-gHx"/>
+                                    <constraint firstItem="dFE-He-nsY" firstAttribute="trailing" secondItem="Hbz-S0-iuW" secondAttribute="trailing" id="N37-Ku-JrI"/>
+                                    <constraint firstItem="Hbz-S0-iuW" firstAttribute="trailing" secondItem="FjA-Jw-Hdn" secondAttribute="trailing" constant="27" id="OcB-bX-4Wr"/>
+                                    <constraint firstItem="FjA-Jw-Hdn" firstAttribute="top" secondItem="Hbz-S0-iuW" secondAttribute="top" constant="10" id="OuA-Gc-uAW"/>
+                                    <constraint firstItem="FjA-Jw-Hdn" firstAttribute="top" secondItem="Hbz-S0-iuW" secondAttribute="top" constant="10" id="TqU-u9-KSs"/>
+                                    <constraint firstItem="4iR-3S-3pA" firstAttribute="leading" secondItem="Hbz-S0-iuW" secondAttribute="leading" constant="10" id="UyW-MA-CIr"/>
+                                    <constraint firstItem="dFE-He-nsY" firstAttribute="leading" secondItem="Hbz-S0-iuW" secondAttribute="leading" id="VTt-ue-SgM"/>
+                                    <constraint firstItem="Hbz-S0-iuW" firstAttribute="trailing" secondItem="4iR-3S-3pA" secondAttribute="trailing" constant="10" id="eeI-JC-o75"/>
+                                    <constraint firstItem="4iR-3S-3pA" firstAttribute="top" secondItem="FjA-Jw-Hdn" secondAttribute="bottom" constant="20" id="zSB-Yy-GEe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -476,12 +499,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="textTableData" destination="riN-E1-pJg" id="yz6-rb-QBR"/>
+                        <outlet property="lblDisplayUserName" destination="4iR-3S-3pA" id="g1f-Tc-Irr"/>
+                        <outlet property="textTableData" destination="dFE-He-nsY" id="6W7-eR-ndc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oML-c9-Mnq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3118.840579710145" y="65.625"/>
+            <point key="canvasLocation" x="3003.0769230769229" y="62.559241706161131"/>
         </scene>
         <!--Firebase View Controller-->
         <scene sceneID="M06-K3-Kat">
@@ -555,7 +579,7 @@
                 <navigationItem id="fgF-us-0sA"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKn-Qi-ya1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3834.7826086956525" y="62.946428571428569"/>
+            <point key="canvasLocation" x="3728" y="63"/>
         </scene>
     </scenes>
     <resources>

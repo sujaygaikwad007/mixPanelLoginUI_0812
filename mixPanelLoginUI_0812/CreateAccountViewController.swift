@@ -1,6 +1,9 @@
 import UIKit
 import Mixpanel
 import Firebase
+import FirebaseDatabase
+
+
 
 class CreateAccountViewController: UIViewController {
     
@@ -15,8 +18,10 @@ class CreateAccountViewController: UIViewController {
     var iconClick = false
     
     
+    var controller = SignInViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         createBottomCurve(for: roundedUIView)
         cornerRadiusTxtField()
@@ -90,7 +95,15 @@ class CreateAccountViewController: UIViewController {
         }
         else
         {
+            
+            
+            
+            
+            showToast(controller: self, message: "Account Created Successfully", seconds: 0)
+            
             firebaseSignUp()
+            
+            
             
             
             Mixpanel.mainInstance().identify(distinctId: userName!)
@@ -133,7 +146,7 @@ class CreateAccountViewController: UIViewController {
     
     func eyeIconTxtField(for textField: UITextField, with iconImageView: UIImageView) {
         let passIcon = iconImageView
-        passIcon.image = UIImage(named: "open")
+        passIcon.image = UIImage(named: "close")
         let contentView = UIView() // For blank space
         contentView.addSubview(passIcon)
         
@@ -169,31 +182,59 @@ class CreateAccountViewController: UIViewController {
     
     
     func firebaseSignUp(){
-      guard let email = txtSignUpEmail.text ,let password = txtSignUpConfirmPass.text else
-      {
-          return
-      }
+        guard let email = txtSignUpEmail.text ,let password = txtSignUpConfirmPass.text, let username =  txtSignUpUsername.text else
+        {
+            return
+        }
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error{
                 print("Error creating user: \(error.localizedDescription)")
             } else {
-                print("User created successfully")
-                showToast(controller: self, message: "Account Created Successfully", seconds: 3)
-                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
-                self.navigationController?.pushViewController(signInVC, animated: true)
-
+                print("User created successfully--------")
             }
             
         }
         
         
+        if let user = Auth.auth().currentUser{
+            let userRef = Database.database().reference().child("users").child(user.uid)
+            
+            let userDetails = [
+                "uid": user.uid,
+                "username": username,
+                "email" : email
+            ]
+            
+            userRef.setValue(userDetails) { (error, ref) in
+                if let error = error {
+                    print("Error storing user details: \(error.localizedDescription)")
+                } else {
+                    print("User created successfully--------")
+                    let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
+                    signInVC.userName = self.txtSignUpEmail.text!
+                    self.navigationController?.pushViewController(signInVC, animated: true)
+                    self.textFieldClearFunc()
+                    
+                }
+            }
+        }
+        
+        
     }
+    
+    
+    func textFieldClearFunc()
+    {
+        txtSignUpUsername.text = ""
+        txtSignUpEmail.text = ""
+        txtSignUpPass.text = ""
+        txtSignUpConfirmPass.text = ""
+        
+    }
+
+    
 }
-
-
-
-
 
 
 extension CreateAccountViewController : UITextFieldDelegate
@@ -241,6 +282,9 @@ extension CreateAccountViewController : UITextFieldDelegate
         
     }
     //Code for add border color after selecting-- End
+    
+    
+    
 }
 
 

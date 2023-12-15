@@ -21,6 +21,7 @@
 		1F7B5DF62B22FF610074F239 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF52B22FF610074F239 /* SignInViewController.swift */; };
 		1F7B5DF82B22FF7C0074F239 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */; };
 		1F908D272B28630A0011CABE /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F908D262B28630A0011CABE /* FirebaseViewController.swift */; };
+		1FB9421E2B2AE23500D687F1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB9421D2B2AE23500D687F1 /* Model.swift */; };
 		1FDEB02D2B26E3EC003A2B37 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEB02C2B26E3EC003A2B37 /* File.swift */; };
 		D74DF1AEF7532E938FAC3F0F /* Pods_mixPanelLoginUI_0812.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842EDEF123B99B1929E35CFE /* Pods_mixPanelLoginUI_0812.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		1F7B5DF52B22FF610074F239 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		1F908D262B28630A0011CABE /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
+		1FB9421D2B2AE23500D687F1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1FDEB02C2B26E3EC003A2B37 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		842EDEF123B99B1929E35CFE /* Pods_mixPanelLoginUI_0812.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mixPanelLoginUI_0812.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7628C9223675456A952078 /* Pods-mixPanelLoginUI_0812.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mixPanelLoginUI_0812.debug.xcconfig"; path = "Target Support Files/Pods-mixPanelLoginUI_0812/Pods-mixPanelLoginUI_0812.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,11 +95,12 @@
 				1F0F01172B2718F7000BD387 /* WelcomeViewController.swift */,
 				1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */,
 				1F7B5DF52B22FF610074F239 /* SignInViewController.swift */,
+				1FB9421D2B2AE23500D687F1 /* Model.swift */,
+				1F1561CF2B282FC6006452E3 /* Checkbox.swift */,
 				1FDEB02C2B26E3EC003A2B37 /* File.swift */,
 				1F2B6CBE2B22EE2F0062BEB0 /* Assets.xcassets */,
 				1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */,
 				1F2B6CC32B22EE2F0062BEB0 /* Info.plist */,
-				1F1561CF2B282FC6006452E3 /* Checkbox.swift */,
 			);
 			path = mixPanelLoginUI_0812;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				1F2B6CB62B22EE2A0062BEB0 /* AppDelegate.swift in Sources */,
 				1F7B5DF82B22FF7C0074F239 /* CreateAccountViewController.swift in Sources */,
 				1F2B6CB82B22EE2A0062BEB0 /* SceneDelegate.swift in Sources */,
+				1FB9421E2B2AE23500D687F1 /* Model.swift in Sources */,
 				1F7B5DF62B22FF610074F239 /* SignInViewController.swift in Sources */,
 				1F0F01182B2718F7000BD387 /* WelcomeViewController.swift in Sources */,
 			);

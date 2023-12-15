@@ -674,6 +674,9 @@ PODS:
     - FirebaseAnalytics (~> 10.8.0)
   - Firebase/CoreOnly (10.8.0):
     - FirebaseCore (= 10.8.0)
+  - Firebase/Database (10.8.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 10.8.0)
   - FirebaseAnalytics (10.8.0):
     - FirebaseAnalytics/AdIdSupport (= 10.8.0)
     - FirebaseCore (~> 10.0)
@@ -705,6 +708,9 @@ PODS:
     - GoogleUtilities/Logger (~> 7.8)
   - FirebaseCoreInternal (10.8.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseDatabase (10.8.0):
+    - FirebaseCore (~> 10.0)
+    - leveldb-library (~> 1.22)
   - FirebaseFirestore (10.16.0):
     - abseil/algorithm (~> 1.20220623.0)
     - abseil/base (~> 1.20220623.0)
@@ -849,6 +855,7 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Database
   - FirebaseFirestore
   - GoogleSignIn
   - Mixpanel-swift
@@ -870,6 +877,7 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstallations
     - GoogleAppMeasurement
@@ -900,6 +908,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: 28e6fff787467cd15ab51c8c7aa904003b2f57aa
   FirebaseCore: e78636a990b54be427ce300aa09a0e359f4e0e87
   FirebaseCoreInternal: fa2899eb1f340054858d289e5a0fb935a0a74e52
+  FirebaseDatabase: e9415a93447361b65e312186b169812acfb75acc
   FirebaseFirestore: 17bd5c8a0ea4be0fcae5a6f95f817983623adb4a
   FirebaseInstallations: b2a05a3fe707df764345d68685534d07d0664af3
   GoogleAppMeasurement: 0ba93018e916f7badf915c2337d43cc1fa96b3f9
@@ -914,6 +923,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: 328eb7b62c5e15b6d72ec34333a2c3c2262a4acf
+PODFILE CHECKSUM: 1df49351a60ad005e67acdb002c80fc60dd690ef
 
 COCOAPODS: 1.14.3

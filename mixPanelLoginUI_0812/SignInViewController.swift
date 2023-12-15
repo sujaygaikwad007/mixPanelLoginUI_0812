@@ -3,14 +3,14 @@ import Mixpanel
 import Firebase
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController  {
     
     @IBOutlet weak var roundedUIView: UIView!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var txtSignInUserName: UITextField!
     @IBOutlet weak var txtSignInPass: UITextField!
     
-    var iconClick = false
+    var iconClick = false,userName = ""
     
     override func viewDidLoad() {
         
@@ -30,6 +30,16 @@ class SignInViewController: UIViewController {
         
         let checkboxManager = CheckboxManager.shared
         let (checkbox, label) = checkboxManager.createCheckbox(targetView: self.view, position: CGPoint(x: 35 , y: 520), text: "Remember Me")
+        
+        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("userName----\(self.userName)")
+        self.txtSignInUserName.text = !userName.isEmpty ? self.userName : ""
+        
         
     }
     
@@ -71,6 +81,7 @@ class SignInViewController: UIViewController {
     @IBAction func signUpFrmSignInBtn(_ sender: UIButton) {
         
         let signUpVC = storyboard?.instantiateViewController(withIdentifier: "createAccount") as! CreateAccountViewController
+        signUpVC.controller = self
         self.navigationController?.pushViewController(signUpVC, animated: true)
         
     }
@@ -95,7 +106,7 @@ class SignInViewController: UIViewController {
     
     func eyeIconTxtField(for textField: UITextField, with iconImageView: UIImageView) {
         let passIcon = iconImageView
-        passIcon.image = UIImage(named: "open")
+        passIcon.image = UIImage(named: "close")
         let contentView = UIView() // For blank space
         contentView.addSubview(passIcon)
         
@@ -191,7 +202,24 @@ extension SignInViewController : UITextFieldDelegate
         
         addIconToTextField(textField: txtSignInUserName, iconName: "user")
     }
+    
+
     //Code for add border color after selecting-- End
+    
+//        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//            if textField == txtSignInPass {
+//                let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+//
+//                textField.text = String(repeating: "*", count: updatedText.count)
+//
+//                return false
+//            }
+//
+//            return true
+//        }
+//    
+    
+    
 }
 
 
