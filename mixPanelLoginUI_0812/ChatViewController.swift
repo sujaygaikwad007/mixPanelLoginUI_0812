@@ -1,8 +1,12 @@
 
 import UIKit
 import MessageKit
+import Firebase
 
 class ChatViewController: MessagesViewController {
+    
+    @IBOutlet weak var currentUserNameLbl: UILabel!
+    
     
     var messages = [Message]()
     let selfSender = Sender(senderId: "1",
@@ -11,14 +15,17 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messages.append(Message(sender: selfSender,
-                                messageId: "1",
-                                sentDate: Date(),
-                                kind: .text("Hello")))
-        
+                
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //print("UerName of current use----\(currentUserName)")
+        //self.currentUserNameLbl.text = !currentUserName.isEmpty ? self.currentUserName : ""
 
     }
     

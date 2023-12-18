@@ -97,8 +97,14 @@ extension WelcomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let user = users[indexPath.row]
+        
         let chatVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
+        chatVC.title = user.username
+    
+
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
