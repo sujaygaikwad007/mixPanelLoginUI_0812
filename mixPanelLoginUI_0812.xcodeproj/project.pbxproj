@@ -18,6 +18,7 @@
 		1F2B6CC22B22EE2F0062BEB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6CC02B22EE2F0062BEB0 /* LaunchScreen.storyboard */; };
 		1F637D942B29C27F00C1FD35 /* ResultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F637D922B29C27F00C1FD35 /* ResultTableCell.swift */; };
 		1F637D952B29C27F00C1FD35 /* ResultTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F637D932B29C27F00C1FD35 /* ResultTableCell.xib */; };
+		1F6DB5852B3014B600DD584F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6DB5842B3014B600DD584F /* ChatViewController.swift */; };
 		1F7B5DF62B22FF610074F239 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF52B22FF610074F239 /* SignInViewController.swift */; };
 		1F7B5DF82B22FF7C0074F239 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */; };
 		1F908D272B28630A0011CABE /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F908D262B28630A0011CABE /* FirebaseViewController.swift */; };
@@ -41,6 +42,7 @@
 		1F2B6CC32B22EE2F0062BEB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F637D922B29C27F00C1FD35 /* ResultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableCell.swift; sourceTree = "<group>"; };
 		1F637D932B29C27F00C1FD35 /* ResultTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableCell.xib; sourceTree = "<group>"; };
+		1F6DB5842B3014B600DD584F /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1F7B5DF52B22FF610074F239 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		1F908D262B28630A0011CABE /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				1F2B6CB72B22EE2A0062BEB0 /* SceneDelegate.swift */,
 				1F2B6CB92B22EE2A0062BEB0 /* ViewController.swift */,
 				1F2B6CBB2B22EE2A0062BEB0 /* Main.storyboard */,
+				1F6DB5842B3014B600DD584F /* ChatViewController.swift */,
 				1F908D262B28630A0011CABE /* FirebaseViewController.swift */,
 				1F0F01172B2718F7000BD387 /* WelcomeViewController.swift */,
 				1F7B5DF72B22FF7C0074F239 /* CreateAccountViewController.swift */,
@@ -258,6 +261,7 @@
 				1F2B6CB82B22EE2A0062BEB0 /* SceneDelegate.swift in Sources */,
 				1FB9421E2B2AE23500D687F1 /* Model.swift in Sources */,
 				1F7B5DF62B22FF610074F239 /* SignInViewController.swift in Sources */,
+				1F6DB5852B3014B600DD584F /* ChatViewController.swift in Sources */,
 				1F0F01182B2718F7000BD387 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -581,6 +581,21 @@
             </objects>
             <point key="canvasLocation" x="3728" y="63"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="ogb-zL-xxQ">
+            <objects>
+                <viewController storyboardIdentifier="ChatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zZa-Aw-xJl" customClass="ChatViewController" customModule="mixPanelLoginUI_0812" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wQB-LC-sh7">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="PC7-dm-1iD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uh0-8X-hnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4468" y="63"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MoneyRm" width="500" height="500"/>

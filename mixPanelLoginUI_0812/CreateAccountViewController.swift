@@ -198,6 +198,7 @@ class CreateAccountViewController: UIViewController {
         
         
         if let user = Auth.auth().currentUser{
+            
             let userRef = Database.database().reference().child("users").child(user.uid)
             
             let userDetails = [

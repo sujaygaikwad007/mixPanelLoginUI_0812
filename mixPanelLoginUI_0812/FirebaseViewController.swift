@@ -43,11 +43,15 @@ class FirebaseViewController: UIViewController, ASAuthorizationControllerPresent
                   let idToken = user.idToken?.tokenString
             else {
                 return
+               
             }
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                            accessToken: user.accessToken.tokenString)
             print("googleSignInBtn--- \(credential)")
+            
+            let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+            self.navigationController?.pushViewController(welcomeVC, animated: true)
             
         }
     }

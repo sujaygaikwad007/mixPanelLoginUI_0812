@@ -162,7 +162,6 @@ class SignInViewController: UIViewController  {
 
                 
             } else {
-                print("User created successfully")
                 let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
                 self.navigationController?.pushViewController(welcomeVC, animated: true)
             }

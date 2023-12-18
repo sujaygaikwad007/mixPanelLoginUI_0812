@@ -17,5 +17,6 @@ target 'mixPanelLoginUI_0812' do
     pod 'Firebase'
     pod 'FirebaseFirestore'
     pod 'Firebase/Database'
+    pod 'MessageKit'
 
 end
