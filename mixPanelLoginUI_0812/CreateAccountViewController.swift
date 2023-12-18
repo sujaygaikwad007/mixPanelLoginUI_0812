@@ -102,10 +102,7 @@ class CreateAccountViewController: UIViewController {
             showToast(controller: self, message: "Account Created Successfully", seconds: 0)
             
             firebaseSignUp()
-            
-            
-            
-            
+    
             Mixpanel.mainInstance().identify(distinctId: userName!)
             Mixpanel.mainInstance().people.set(properties: ["$email": email, "$name" : userName])
             Mixpanel.mainInstance().track(event: "Sign UP...", properties:
@@ -187,6 +184,8 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
+        
+        //Create user
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error{
                 print("Error creating user: \(error.localizedDescription)")
@@ -196,15 +195,16 @@ class CreateAccountViewController: UIViewController {
             
         }
         
-        
+        //Update realtime Database
         if let user = Auth.auth().currentUser{
             
             let userRef = Database.database().reference().child("users").child(user.uid)
             
-            let userDetails = [
-                "uid": user.uid,
-                "username": username,
-                "email" : email
+            let userDetails: [String: Any] = [
+                        "uid": user.uid,
+                        "username": username,
+                        "email": email,
+                        "messages": []
             ]
             
             userRef.setValue(userDetails) { (error, ref) in
@@ -220,6 +220,13 @@ class CreateAccountViewController: UIViewController {
                 }
             }
         }
+        
+        
+        
+     
+        
+        
+        
         
         
     }

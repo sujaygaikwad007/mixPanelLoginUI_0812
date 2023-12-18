@@ -25,9 +25,6 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    
-    
-    
     func fetchUserFromFirebase() {
         let ref = Database.database().reference().child("users")
 
@@ -42,7 +39,7 @@ class WelcomeViewController: UIViewController {
                    let uid = userData["uid"] as? String
                 {
 
-                    let user = User(username: username, email: email, uid: uid)
+                    let user = User(username: username, email: email, uid: uid, messages: [])
                     self.lblDisplayUserName.text = "Welcome"
                     self.users.append(user)
                 }
@@ -103,6 +100,7 @@ extension WelcomeViewController: UITableViewDelegate, UITableViewDataSource{
         let chatVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
         chatVC.title = user.username
+        
     
 
         self.navigationController?.pushViewController(chatVC, animated: true)

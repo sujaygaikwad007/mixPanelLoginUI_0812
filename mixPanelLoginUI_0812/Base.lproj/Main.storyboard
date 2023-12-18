@@ -588,28 +588,9 @@
                     <view key="view" contentMode="scaleToFill" id="wQB-LC-sh7">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM6-Eq-0Hh">
-                                <rect key="frame" x="0.0" y="44" width="390" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="As9-xi-En4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PC7-dm-1iD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="PC7-dm-1iD" firstAttribute="trailing" secondItem="CM6-Eq-0Hh" secondAttribute="trailing" id="Aia-oD-ekU"/>
-                            <constraint firstItem="CM6-Eq-0Hh" firstAttribute="top" secondItem="PC7-dm-1iD" secondAttribute="top" id="Jv8-bF-OyZ"/>
-                            <constraint firstItem="CM6-Eq-0Hh" firstAttribute="leading" secondItem="PC7-dm-1iD" secondAttribute="leading" id="OCO-zG-x9V"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="currentUserNameLbl" destination="CM6-Eq-0Hh" id="IAI-Co-oc6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uh0-8X-hnB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
