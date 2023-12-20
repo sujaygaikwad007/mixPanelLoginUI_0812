@@ -500,6 +500,7 @@
                     </view>
                     <connections>
                         <outlet property="lblDisplayUserName" destination="4iR-3S-3pA" id="g1f-Tc-Irr"/>
+                        <outlet property="signOutBtnVar" destination="FjA-Jw-Hdn" id="J1c-sL-Ka3"/>
                         <outlet property="textTableData" destination="dFE-He-nsY" id="6W7-eR-ndc"/>
                     </connections>
                 </viewController>

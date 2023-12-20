@@ -47,6 +47,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     
+    
     @IBAction func signUpBtnTapped(_ sender: UIButton) {
         
         
@@ -96,8 +97,7 @@ class CreateAccountViewController: UIViewController {
         else
         {
             
-            
-            
+    
             
             showToast(controller: self, message: "Account Created Successfully", seconds: 0)
             
@@ -144,7 +144,7 @@ class CreateAccountViewController: UIViewController {
     func eyeIconTxtField(for textField: UITextField, with iconImageView: UIImageView) {
         let passIcon = iconImageView
         passIcon.image = UIImage(named: "close")
-        let contentView = UIView() // For blank space
+        let contentView = UIView() 
         contentView.addSubview(passIcon)
         
         contentView.frame = CGRect(x: 0, y: 0, width: UIImage(named: "close")!.size.width, height: UIImage(named: "close")!.size.height)
@@ -178,58 +178,40 @@ class CreateAccountViewController: UIViewController {
     //Code for Eye icon for password hide and show ---End
     
     
-    func firebaseSignUp(){
-        guard let email = txtSignUpEmail.text ,let password = txtSignUpConfirmPass.text, let username =  txtSignUpUsername.text else
-        {
+    func firebaseSignUp() {
+        guard let email = txtSignUpEmail.text, let password = txtSignUpConfirmPass.text, let username = txtSignUpUsername.text else {
             return
         }
-        
-        
-        //Create user
+
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error{
+            if let error = error {
                 print("Error creating user: \(error.localizedDescription)")
-            } else {
-                print("User created successfully--------")
-            }
-            
-        }
-        
-        //Update realtime Database
-        if let user = Auth.auth().currentUser{
-            
-            let userRef = Database.database().reference().child("users").child(user.uid)
-            
-            let userDetails: [String: Any] = [
-                        "uid": user.uid,
-                        "username": username,
-                        "email": email,
-                        "messages": []
-            ]
-            
-            userRef.setValue(userDetails) { (error, ref) in
-                if let error = error {
-                    print("Error storing user details: \(error.localizedDescription)")
-                } else {
-                    print("User created successfully--------")
-                    let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
-                    signInVC.userName = self.txtSignUpEmail.text!
-                    self.navigationController?.pushViewController(signInVC, animated: true)
-                    self.textFieldClearFunc()
-                    
+            } else if let user = Auth.auth().currentUser {
+                let userRef = Database.database().reference().child("users").child(user.uid)
+
+                let userDetails: [String: Any] = [
+                    "uid": user.uid,
+                    "username": username,
+                    "email": email,
+                    "messages": []
+                ]
+
+                userRef.setValue(userDetails) { (error, ref) in
+                    if let error = error {
+                        print("Error storing user details: \(error.localizedDescription)")
+                    } else {
+                        print("Database updated successfully after user created account")
+
+                        let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "signIn") as! SignInViewController
+                        signInVC.userEmail = self.txtSignUpEmail.text!
+                        self.navigationController?.pushViewController(signInVC, animated: true)
+                        self.textFieldClearFunc()
+                    }
                 }
             }
         }
-        
-        
-        
-     
-        
-        
-        
-        
-        
     }
+
     
     
     func textFieldClearFunc()

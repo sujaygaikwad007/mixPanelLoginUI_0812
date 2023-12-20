@@ -3,34 +3,64 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import JGProgressHUD
+
+protocol WelcomeViewControllerDelegate: AnyObject {
+    func didSignOut()
+}
+
 
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var textTableData: UITableView!
     @IBOutlet weak var lblDisplayUserName: UILabel!
     
+    @IBOutlet weak var signOutBtnVar: UIButton!
+    
     var users: [User] = []
     var currentUser: User?
+
+    
+    var  JGprogress : JGProgressHUD!
+    
+    weak var delegate: WelcomeViewControllerDelegate?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        signOutBtnVar.isHidden = true
+        
         textTableData.dataSource = self
         textTableData.delegate = self
         
+        JGprogress = JGProgressHUD(style: .dark)
+        
+        
         textTableData.register(UINib(nibName: "ResultTableCell", bundle: .none), forCellReuseIdentifier: "ResultTableCell")
         
-       fetchUserFromFirebase()
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            fetchUserFromFirebase()
+        }
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    
     func fetchUserFromFirebase() {
+        
+        JGprogress.show(in: self.view)
+        
         let ref = Database.database().reference().child("users")
-
-        ref.observe(.value) { snapshot in
+        
+        ref.observe(.value) { [self] snapshot in
             self.users.removeAll()
-
+            
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                    let userData = childSnapshot.value as? [String:Any],
@@ -38,38 +68,38 @@ class WelcomeViewController: UIViewController {
                    let email = userData["email"] as? String,
                    let uid = userData["uid"] as? String
                 {
-
                     let user = User(username: username, email: email, uid: uid, messages: [])
-                    self.lblDisplayUserName.text = "Welcome"
                     self.users.append(user)
+                    
+                    
                 }
             }
-
-
+            
+            
             DispatchQueue.main.async {
+                
+                    self.lblDisplayUserName.text = "Welcome!"
+            
+                self.signOutBtnVar.isHidden = false
                 self.textTableData.reloadData()
+                self.JGprogress.dismiss(animated: true)
+                
             }
         }
     }
-    
-    
-    
-    
     
     
     @IBAction func signOutBtn(_ sender: UIButton) {
         
         do {
             try Auth.auth().signOut()
-            
             navigationController?.popToRootViewController(animated: true)
-            
+            delegate?.didSignOut()
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError.localizedDescription)")
         }
         
     }
-    
     
     
     
@@ -86,23 +116,33 @@ extension WelcomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         let user = users[indexPath.row]
         
-        cell.lblUserName.text = user.username
-        cell.lblUserEmail.text = user.email
+        
+        
+        if let currentUser = currentUser, user.uid == currentUser.uid {
+            cell.lblUserName.text = "You"
+            cell.lblUserEmail.text = ""
+        } else {
+            cell.lblUserName.text = user.username
+            cell.lblUserEmail.text = user.email
+        }
+        
         
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let user = users[indexPath.row]
         
         let chatVC = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
         chatVC.title = user.username
         
-    
-
+        chatVC.receiverUid = user.uid
+        
+        
+        
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
     

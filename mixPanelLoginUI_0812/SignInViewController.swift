@@ -10,7 +10,7 @@ class SignInViewController: UIViewController  {
     @IBOutlet weak var txtSignInUserName: UITextField!
     @IBOutlet weak var txtSignInPass: UITextField!
     
-    var iconClick = false,userName = ""
+    var iconClick = false ,userEmail = ""
     
     override func viewDidLoad() {
         
@@ -32,14 +32,16 @@ class SignInViewController: UIViewController  {
         let (checkbox, label) = checkboxManager.createCheckbox(targetView: self.view, position: CGPoint(x: 35 , y: 520), text: "Remember Me")
         
         
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("userName----\(self.userName)")
-        self.txtSignInUserName.text = !userName.isEmpty ? self.userName : ""
         
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            navigateToMainScreen()
+        } else {
+            self.txtSignInUserName.text = !userEmail.isEmpty ? self.userEmail : ""
+        }
         
     }
     
@@ -76,6 +78,45 @@ class SignInViewController: UIViewController  {
                                             ])
         }
     }
+    
+    //FireBase SignIn start-----
+    func firebaseSignUp(){
+        guard let email = txtSignInUserName.text ,let password = txtSignInPass.text else
+        {
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            
+            if let error = error{
+                
+                print("Error creating user: \(error.localizedDescription)")
+                showToast(controller: self, message: "Account Doesn't Exists", seconds: 2)
+                self.txtSignInUserName.layer.borderColor = UIColor.red.cgColor
+                self.txtSignInPass.layer.borderColor = UIColor.red.cgColor
+                
+                
+            } else {
+                
+               
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                self.navigateToMainScreen()
+            }
+            
+        }
+        
+        
+    }
+    
+    func navigateToMainScreen() {
+        if let uid = Auth.auth().currentUser?.uid {
+            let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+            
+            self.navigationController?.pushViewController(welcomeVC, animated: true)
+        }
+    }
+    //FireBase SignIn End-----
+    
     
     
     @IBAction func signUpFrmSignInBtn(_ sender: UIButton) {
@@ -146,31 +187,14 @@ class SignInViewController: UIViewController  {
     //Code for Eye icon for password hide and show ---End
     
     
-    func firebaseSignUp(){
-        guard let email = txtSignInUserName.text ,let password = txtSignInPass.text else
-        {
-            return
-        }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if let error = error{
-                
-                print("Error creating user: \(error.localizedDescription)")
-                showToast(controller: self, message: "Account Doesn't Exists", seconds: 2)
-                self.txtSignInUserName.layer.borderColor = UIColor.red.cgColor
-                self.txtSignInPass.layer.borderColor = UIColor.red.cgColor
+}
 
-                
-            } else {
-                let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-                self.navigationController?.pushViewController(welcomeVC, animated: true)
-            }
-            
-        }
-        
-        
+
+
+extension SignInViewController: WelcomeViewControllerDelegate {
+    func didSignOut() {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
     }
-    
 }
 
 
@@ -183,7 +207,6 @@ extension SignInViewController : UITextFieldDelegate
         
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.blue.cgColor
-        
         
         if textField == txtSignInUserName
         {
@@ -202,22 +225,8 @@ extension SignInViewController : UITextFieldDelegate
         addIconToTextField(textField: txtSignInUserName, iconName: "user")
     }
     
-
+    
     //Code for add border color after selecting-- End
-    
-//        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//            if textField == txtSignInPass {
-//                let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-//
-//                textField.text = String(repeating: "*", count: updatedText.count)
-//
-//                return false
-//            }
-//
-//            return true
-//        }
-//    
-    
     
 }
 

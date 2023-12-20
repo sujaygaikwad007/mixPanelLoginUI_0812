@@ -18,5 +18,6 @@ target 'mixPanelLoginUI_0812' do
     pod 'FirebaseFirestore'
     pod 'Firebase/Database'
     pod 'MessageKit'
+    pod 'JGProgressHUD'
 
 end
