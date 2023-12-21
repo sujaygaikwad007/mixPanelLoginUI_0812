@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Reachability
 
 
 
@@ -63,5 +64,8 @@ func showToast(controller:UIViewController ,message:String,seconds:Double)
 
 
 //Function for alert message end
+
+
+
 
 

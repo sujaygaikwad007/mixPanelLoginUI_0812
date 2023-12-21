@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
     
     var users: [User] = []
     var currentUser: User?
-
+    
     
     var  JGprogress : JGProgressHUD!
     
@@ -29,6 +29,8 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
         
         signOutBtnVar.isHidden = true
         
@@ -69,17 +71,20 @@ class WelcomeViewController: UIViewController {
                    let uid = userData["uid"] as? String
                 {
                     let user = User(username: username, email: email, uid: uid, messages: [])
+                    print("User from Database----\(user)")
                     self.users.append(user)
                     
                     
                 }
             }
             
+            self.users = self.users.filter { $0.uid != Auth.auth().currentUser?.uid }
+           
+            
             
             DispatchQueue.main.async {
                 
-                    self.lblDisplayUserName.text = "Welcome!"
-            
+                self.lblDisplayUserName.text = "Welcome!"
                 self.signOutBtnVar.isHidden = false
                 self.textTableData.reloadData()
                 self.JGprogress.dismiss(animated: true)
@@ -118,13 +123,9 @@ extension WelcomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
-        if let currentUser = currentUser, user.uid == currentUser.uid {
-            cell.lblUserName.text = "You"
-            cell.lblUserEmail.text = ""
-        } else {
-            cell.lblUserName.text = user.username
-            cell.lblUserEmail.text = user.email
-        }
+        cell.lblUserName.text = user.username
+        cell.lblUserEmail.text = user.email
+        
         
         
         

@@ -1,7 +1,5 @@
-
 import Foundation
 import MessageKit
-
 
 
 struct User {
@@ -16,6 +14,8 @@ struct Message: MessageType {
     var messageId: String
     var sentDate: Date
     var kind: MessageKind
+    var image: UIImage? = nil
+
 }
 
 struct Sender: SenderType {

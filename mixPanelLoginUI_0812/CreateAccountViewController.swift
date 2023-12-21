@@ -2,6 +2,7 @@ import UIKit
 import Mixpanel
 import Firebase
 import FirebaseDatabase
+import Reachability
 
 
 
@@ -222,6 +223,8 @@ class CreateAccountViewController: UIViewController {
         txtSignUpConfirmPass.text = ""
         
     }
+
+
 
     
 }

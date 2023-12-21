@@ -16,9 +16,6 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
-        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -26,10 +23,9 @@ class ChatViewController: MessagesViewController {
         configureMessageInputBar()
         observeMessages()
         
-        
     }
     
-   
+    
     
     func configureMessageInputBar() {
         messageInputBar.delegate = self
@@ -37,40 +33,49 @@ class ChatViewController: MessagesViewController {
         messageInputBar.sendButton.setTitle("Send", for: .normal)
     }
     
+    
+   
+    
+    //code for get messages from data base-- start
     func observeMessages() {
-        guard let user = Auth.auth().currentUser else { return }
-        
-        let senderId = user.uid
-        let chatId = receiverUid
-        
-        print("observeMessages Sender UID is--------\(user.uid)")
-        print("observeMessages Receiver UID is------\(receiverUid)")
-        
-        let ref = Database.database().reference().child("users").child(senderId).child(chatId).child("messages")
-        
-        ref.observe(.childAdded) { [weak self] snapshot in
-            guard let self = self else { return }
-            
-            if let messageData = snapshot.value as? [String: Any],
-               let senderId = messageData["senderId"] as? String,
-               let displayName = messageData["displayName"] as? String,
-               let text = messageData["text"] as? String,
-               let timestamp = messageData["timestamp"] as? TimeInterval
-            {
-                let sender = Sender(senderId: senderId, displayName: displayName)
-                print("Sender is-----\(sender)")
-                
-                let message = Message(sender: sender, messageId: snapshot.key, sentDate: Date(timeIntervalSince1970: timestamp), kind: .text(text))
-                print("observeMessages Message is------\(message)")
-                
-                self.messages.append(message)
-                
-                DispatchQueue.main.async {
-                    self.messagesCollectionView.reloadData()
-                }
-            }
-        }
-    }
+           guard let user = Auth.auth().currentUser else { return }
+           
+           let senderId = user.uid
+           let chatId = receiverUid
+           
+           print("observeMessages Sender UID is--------\(user.uid)")
+           print("observeMessages Receiver UID is------\(receiverUid)")
+           
+           let ref = Database.database().reference().child("users").child(senderId).child(chatId).child("messages")
+           
+           ref.observe(.childAdded) { [weak self] snapshot in
+               guard let self = self else { return }
+               
+               if let messageData = snapshot.value as? [String: Any],
+                  let senderId = messageData["senderId"] as? String,
+                  let displayName = messageData["displayName"] as? String,
+                  let text = messageData["text"] as? String,
+                  let timestamp = messageData["timestamp"] as? TimeInterval
+               {
+                   let sender = Sender(senderId: senderId, displayName: displayName)
+                   print("Sender is-----\(sender)")
+                   
+                   let message = Message(sender: sender, messageId: snapshot.key, sentDate: Date(timeIntervalSince1970: timestamp), kind: .text(text))
+                   print("observeMessages Message is------\(message)")
+                   
+                   self.messages.append(message)
+                   
+                   DispatchQueue.main.async {
+                       self.messagesCollectionView.reloadData()
+                   }
+               }
+           }
+       }
+    
+    
+    
+    
+
     
 }
 
@@ -79,19 +84,19 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
     func currentSender() -> SenderType {
         return selfSender
     }
-
+    
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return messages[indexPath.section]
     }
-
+    
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
-
+    
     func isFromCurrentSender(message: MessageType) -> Bool {
         return message.sender.senderId == selfSender.senderId
     }
-
+    
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if !isFromCurrentSender(message: message) {
             return NSAttributedString(string: message.sender.displayName, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
@@ -114,7 +119,7 @@ extension ChatViewController {
             sendFromUser(text: text)
         }
     }
-
+    
     func sendToUser(text: String) {
         
         guard let user = Auth.auth().currentUser else { return }
@@ -139,7 +144,7 @@ extension ChatViewController {
             }
         }
     }
-
+    
     func sendFromUser(text: String) {
         guard let user = Auth.auth().currentUser else { return }
         let senderId = user.uid

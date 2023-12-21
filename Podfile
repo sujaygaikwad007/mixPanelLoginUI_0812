@@ -19,5 +19,8 @@ target 'mixPanelLoginUI_0812' do
     pod 'Firebase/Database'
     pod 'MessageKit'
     pod 'JGProgressHUD'
+    pod 'ReachabilitySwift'
+    pod 'SDWebImage'
+
 
 end

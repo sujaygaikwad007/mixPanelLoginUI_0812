@@ -2,7 +2,6 @@ import UIKit
 import Mixpanel
 import Firebase
 
-
 class SignInViewController: UIViewController  {
     
     @IBOutlet weak var roundedUIView: UIView!
