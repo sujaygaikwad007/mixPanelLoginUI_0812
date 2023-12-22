@@ -71,7 +71,7 @@ class WelcomeViewController: UIViewController {
                    let uid = userData["uid"] as? String
                 {
                     let user = User(username: username, email: email, uid: uid, messages: [])
-                    print("User from Database----\(user)")
+                   // print("User from Database----\(user)")
                     self.users.append(user)
                     
                     

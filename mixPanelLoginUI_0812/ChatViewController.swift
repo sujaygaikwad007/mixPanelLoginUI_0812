@@ -20,6 +20,8 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         
+        self.showMessageTimestampOnSwipeLeft = true
+        
         configureMessageInputBar()
         observeMessages()
         
@@ -69,6 +71,9 @@ class ChatViewController: MessagesViewController {
                        self.messagesCollectionView.reloadData()
                    }
                }
+               else {
+                   print("could not print timestamp----")
+               }
            }
        }
     
@@ -103,6 +108,16 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         }
         return nil
     }
+    
+    func messageTimestampLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let messageDate = message.sentDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let dateString = formatter.string(from: messageDate)
+        return
+        NSAttributedString(string: dateString, attributes: [.font: UIFont.systemFont(ofSize: 12)])
+    }
+
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
